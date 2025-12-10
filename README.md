@@ -1,6 +1,6 @@
-# Adriana Microblading - Sitio Web
+# Adriana Microblading - Landing Page
 
-Sitio web profesional para Adriana Tortosa, especialista en microblading. Desarrollado con Next.js, React y TailwindCSS.
+Landing page estática para Adriana Tortosa, especialista en microblading. Desarrollada con HTML, CSS y JavaScript vanilla.
 
 ## 🚀 Características
 
@@ -11,77 +11,55 @@ Sitio web profesional para Adriana Tortosa, especialista en microblading. Desarr
 - **Animaciones suaves**: Transiciones modernas en todos los elementos
 - **Botones interactivos**: Hover con efecto blanco al 30% de opacidad
 
-## 📋 Requisitos Previos
+## 📋 Requisitos
 
-- Node.js 18+ instalado
-- npm o yarn
+No se requieren dependencias. Solo necesitas un navegador web moderno.
 
-## 🛠️ Instalación
+## 🛠️ Uso
 
-1. Instala las dependencias:
-
-```bash
-npm install
-```
-
-2. Añade las imágenes y videos necesarios:
-
-   - Coloca un video en `public/hero-video.mp4` para el hero
-   - Coloca las 6 imágenes del carrusel en `public/`:
+1. Añade las imágenes y videos necesarios:
+   - Coloca un video en `hero-video.mp4` para el hero
+   - Coloca las 6 imágenes del carrusel:
      - `philosophy-1.jpg`
      - `philosophy-2.jpg`
      - `philosophy-3.jpg`
      - `philosophy-4.jpg`
      - `philosophy-5.jpg`
      - `philosophy-6.jpg`
-   - Coloca `public/contact-image.jpg` para la sección de contacto
+   - Coloca `contact-image.JPG` para la sección de contacto
 
-3. Ejecuta el servidor de desarrollo:
-
-```bash
-npm run dev
-```
-
-4. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+2. Abre `index.html` en tu navegador o sirve los archivos con un servidor web local.
 
 ## 📁 Estructura del Proyecto
 
 ```
-├── app/
-│   ├── globals.css      # Estilos globales y animaciones
-│   ├── layout.tsx       # Layout principal
-│   └── page.tsx         # Página principal
-├── components/
-│   ├── Navbar.tsx       # Barra de navegación con scroll
-│   ├── Hero.tsx         # Sección hero con video
-│   ├── Philosophy.tsx   # Sección filosofía con carrusel
-│   ├── Process.tsx      # Sección proceso paso a paso
-│   ├── Services.tsx     # Sección servicios
-│   ├── FAQs.tsx         # Preguntas frecuentes
-│   ├── Contact.tsx      # Sección contacto
-│   └── Footer.tsx       # Pie de página
-└── public/              # Archivos estáticos (imágenes, videos)
+├── index.html          # Página principal
+├── styles.css          # Estilos CSS
+├── script.js           # JavaScript vanilla
+├── hero-video.mp4      # Video de fondo del hero
+├── philosophy-*.jpg    # Imágenes del carrusel (6 imágenes)
+└── contact-image.JPG   # Imagen de contacto
 ```
 
 ## 🎨 Personalización
 
 ### Colores
 
-Los colores principales están definidos en los componentes usando clases de Tailwind:
+Los colores principales están definidos en `styles.css`:
 - Fondo oscuro: `#262624`
 - Texto principal: `#51483f`, `#675b50`
-- Fondo claro: `#f2f2e6`, `#e3dbc8`
+- Fondo claro: `#f2f2e6`, `#DCD2C7`
 
 ### Fuentes
 
 - **Playfair Display**: Para títulos y textos destacados
-- **Inter**: Para textos generales
+- **Inter Display**: Para textos generales
 
 ### Enlaces
 
-Actualiza los enlaces en los componentes:
-- Instagram: `components/Philosophy.tsx` y `components/Footer.tsx`
-- WhatsApp: `components/Contact.tsx` y `components/Footer.tsx`
+Actualiza los enlaces en `index.html`:
+- Instagram: Sección filosofía y footer
+- WhatsApp: Sección contacto y footer
 
 ## 📱 Responsive
 
@@ -89,13 +67,6 @@ El sitio está completamente optimizado para:
 - **Móvil**: < 768px
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
-
-## 🚀 Build para Producción
-
-```bash
-npm run build
-npm start
-```
 
 ## 📝 Notas
 
@@ -107,4 +78,3 @@ npm start
 ## 📄 Licencia
 
 © 2025 Adriana Tortosa. Todos los derechos reservados.
-
