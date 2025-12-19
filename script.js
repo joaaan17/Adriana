@@ -1,3 +1,29 @@
+// Font loading handler to prevent FOUT
+if ('fonts' in document) {
+  document.fonts.ready.then(() => {
+    const heroSubtitle = document.querySelector('.hero-subtitle-script');
+    if (heroSubtitle) {
+      heroSubtitle.classList.add('font-loaded');
+    }
+  });
+  
+  // Fallback: check if font is loaded after a short delay
+  setTimeout(() => {
+    const heroSubtitle = document.querySelector('.hero-subtitle-script');
+    if (heroSubtitle && !heroSubtitle.classList.contains('font-loaded')) {
+      heroSubtitle.classList.add('font-loaded');
+    }
+  }, 100);
+} else {
+  // Fallback for browsers without Font Loading API
+  window.addEventListener('load', () => {
+    const heroSubtitle = document.querySelector('.hero-subtitle-script');
+    if (heroSubtitle) {
+      heroSubtitle.classList.add('font-loaded');
+    }
+  });
+}
+
 // Video autoplay handler
 const heroVideo = document.getElementById('heroVideo');
 const heroFallback = document.getElementById('heroFallback');
@@ -34,31 +60,18 @@ if (heroVideo) {
   });
 }
 
-// Navbar scroll behavior
-let lastScrollY = 0;
-const navbar = document.getElementById('navbar');
+// Navbar scroll behavior - mantener siempre visible
 const navbarContainer = document.getElementById('navbarContainer');
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
   
-  // Mostrar/ocultar background según scroll
+  // Mostrar/ocultar background según scroll (opcional, solo para estilo)
   if (currentScrollY > 0) {
     navbarContainer.classList.add('scrolled');
   } else {
     navbarContainer.classList.remove('scrolled');
   }
-  
-  // Comportamiento de mostrar/ocultar navbar
-  if (currentScrollY < 50) {
-    navbar.style.transform = 'translateY(0)';
-  } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-    navbar.style.transform = 'translateY(-100%)';
-  } else if (currentScrollY < lastScrollY) {
-    navbar.style.transform = 'translateY(0)';
-  }
-  
-  lastScrollY = currentScrollY;
 }, { passive: true });
 
 // Mobile menu toggle
@@ -195,4 +208,5 @@ document.querySelectorAll('.process-step').forEach((step) => {
 document.querySelectorAll('.service-item').forEach((item) => {
   observer.observe(item);
 });
+
 
