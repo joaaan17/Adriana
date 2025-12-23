@@ -1,78 +1,102 @@
-// Font loading handler to prevent FOUT
+// Font loading handler para evitar FOUT (Flash of Unstyled Text)
 if ('fonts' in document) {
-  document.fonts.ready.then(() => {
-    const heroSubtitle = document.querySelector('.hero-subtitle-script');
-    if (heroSubtitle) {
-      heroSubtitle.classList.add('font-loaded');
+  Promise.all([
+    document.fonts.load('400 64px Lora'),
+    document.fonts.load('italic 400 64px Lora'),
+    document.fonts.load('600 64px Lora')
+  ]).then(() => {
+    const heroHeading = document.querySelector('.hero-heading');
+    if (heroHeading) {
+      heroHeading.classList.add('fonts-loaded');
+    }
+  }).catch(() => {
+    // Fallback: mostrar el texto aunque las fuentes no se hayan cargado
+    const heroHeading = document.querySelector('.hero-heading');
+    if (heroHeading) {
+      heroHeading.classList.add('fonts-loaded');
     }
   });
-  
-  // Fallback: check if font is loaded after a short delay
+
+  // Timeout de seguridad: mostrar el texto después de 1 segundo aunque las fuentes no se hayan cargado
   setTimeout(() => {
-    const heroSubtitle = document.querySelector('.hero-subtitle-script');
-    if (heroSubtitle && !heroSubtitle.classList.contains('font-loaded')) {
-      heroSubtitle.classList.add('font-loaded');
+    const heroHeading = document.querySelector('.hero-heading');
+    if (heroHeading && !heroHeading.classList.contains('fonts-loaded')) {
+      heroHeading.classList.add('fonts-loaded');
     }
-  }, 100);
+  }, 1000);
 } else {
-  // Fallback for browsers without Font Loading API
+  // Fallback para navegadores sin Font Loading API
   window.addEventListener('load', () => {
-    const heroSubtitle = document.querySelector('.hero-subtitle-script');
-    if (heroSubtitle) {
-      heroSubtitle.classList.add('font-loaded');
+    const heroHeading = document.querySelector('.hero-heading');
+    if (heroHeading) {
+      heroHeading.classList.add('fonts-loaded');
     }
   });
 }
 
-// Video autoplay handler
-const heroVideo = document.getElementById('heroVideo');
-const heroFallback = document.getElementById('heroFallback');
-
-if (heroVideo) {
-  // Intentar reproducir el video
-  heroVideo.play().catch(error => {
-    console.log('Autoplay bloqueado, intentando reproducir con interacción del usuario');
-    // Si el autoplay falla, intentar reproducir cuando el usuario interactúe
-    document.addEventListener('click', () => {
-      heroVideo.play().catch(err => {
-        console.error('Error al reproducir video:', err);
-        // Mostrar imagen de fallback si el video no puede reproducirse
-        if (heroFallback) {
-          heroVideo.style.display = 'none';
-          heroFallback.style.display = 'block';
-        }
-      });
-    }, { once: true });
-  });
-  
-  // Manejar errores de carga del video
-  heroVideo.addEventListener('error', (e) => {
-    console.error('Error al cargar el video:', e);
-    if (heroFallback) {
-      heroVideo.style.display = 'none';
-      heroFallback.style.display = 'block';
-    }
-  });
-  
-  // Asegurar que el video esté cargado
-  heroVideo.addEventListener('loadeddata', () => {
-    console.log('Video cargado correctamente');
-  });
-}
-
-// Navbar scroll behavior - mantener siempre visible
+// Navbar scroll behavior
 const navbarContainer = document.getElementById('navbarContainer');
+const navbar = document.querySelector('.navbar');
+let lastScrollY = window.scrollY;
+let ticking = false;
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
   
-  // Mostrar/ocultar background según scroll (opcional, solo para estilo)
   if (currentScrollY > 0) {
     navbarContainer.classList.add('scrolled');
   } else {
     navbarContainer.classList.remove('scrolled');
   }
+
+  // Hide/show navbar based on scroll direction
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past threshold
+        navbar.classList.add('navbar-hidden');
+      } else {
+        // Scrolling up
+        navbar.classList.remove('navbar-hidden');
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    });
+    
+    ticking = true;
+  }
 }, { passive: true });
+
+// Update active menu item on scroll
+const sections = document.querySelectorAll('section[id]');
+const menuLinks = document.querySelectorAll('.menu-link-wrapper');
+
+function updateActiveMenu() {
+  const scrollPosition = window.scrollY + 150;
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      menuLinks.forEach(wrapper => {
+        const link = wrapper.querySelector('.menu-link');
+        const linkHref = link.getAttribute('href').substring(1);
+        
+        if (linkHref === sectionId) {
+          wrapper.classList.add('active');
+        } else {
+          wrapper.classList.remove('active');
+        }
+      });
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveMenu, { passive: true });
+window.addEventListener('load', updateActiveMenu);
 
 // Mobile menu toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -105,87 +129,48 @@ if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
   });
 }
 
-// Philosophy carousel navigation
-const carousel = document.getElementById('philosophyCarousel');
-let isDragging = false;
-let startX = 0;
-let scrollLeft = 0;
-let touchStart = 0;
-let touchScrollLeft = 0;
-
-if (carousel) {
-  // Touch events
-  carousel.addEventListener('touchstart', (e) => {
-    touchStart = e.touches[0].pageX;
-    touchScrollLeft = carousel.scrollLeft;
-    isDragging = true;
-  });
-
-  carousel.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX;
-    const walk = (x - touchStart) * 1.5;
-    carousel.scrollLeft = touchScrollLeft - walk;
-  });
-
-  carousel.addEventListener('touchend', () => {
-    isDragging = false;
-  });
-
-  // Mouse events
-  carousel.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-    carousel.style.cursor = 'grabbing';
-  });
-
-  carousel.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    carousel.scrollLeft = scrollLeft - walk;
-  });
-
-  carousel.addEventListener('mouseup', () => {
-    isDragging = false;
-    carousel.style.cursor = 'grab';
-  });
-
-  carousel.addEventListener('mouseleave', () => {
-    isDragging = false;
-    carousel.style.cursor = 'grab';
-  });
-}
-
-// FAQs toggle - cada acordeon funciona de forma independiente
+// FAQs toggle
 function toggleFAQ(index) {
+  const faqItem = document.getElementById(`faq-${index}`);
   const faqContent = document.getElementById(`faq-content-${index}`);
   const faqIcon = document.getElementById(`faq-icon-${index}`);
-  const faqContainer = document.getElementById(`faq-container-${index}`);
   
-  if (!faqContent || !faqIcon || !faqContainer) return;
+  if (!faqContent || !faqIcon || !faqItem) return;
   
-  // Toggle del contenido (mostrar/ocultar)
   const isHidden = faqContent.classList.contains('hidden');
   
   if (isHidden) {
-    // Abrir: mostrar contenido, cambiar alineación a start y cambiar icono a flecha arriba
+    // Abrir
     faqContent.classList.remove('hidden');
-    faqContainer.classList.remove('items-center');
-    faqContainer.classList.add('items-start');
-    faqIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>';
+    faqItem.classList.add('expanded');
   } else {
-    // Cerrar: ocultar contenido, cambiar alineación a center y cambiar icono a flecha abajo
+    // Cerrar
     faqContent.classList.add('hidden');
-    faqContainer.classList.remove('items-start');
-    faqContainer.classList.add('items-center');
-    faqIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>';
+    faqItem.classList.remove('expanded');
   }
 }
 
-// Scroll reveal animations
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '#contacto') return;
+    
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const navbarHeight = navbarContainer ? navbarContainer.offsetHeight + 40 : 80;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Intersection Observer for animations
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -194,19 +179,49 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
+      entry.target.classList.add('animated');
     }
   });
 }, observerOptions);
 
-// Observe process steps
-document.querySelectorAll('.process-step').forEach((step) => {
-  observer.observe(step);
+// Observe elements for animation
+document.querySelectorAll('.service-item, .process-step, .faq-item, .services-title-wrapper, .process-header, .faqs-header, .offer-banner').forEach((element) => {
+  element.classList.add('animate-on-scroll');
+  observer.observe(element);
 });
 
-// Observe service items
-document.querySelectorAll('.service-item').forEach((item) => {
-  observer.observe(item);
+// Añadir animación de aparición a las service cards con delay
+document.querySelectorAll('.service-item').forEach((item, index) => {
+  item.style.animationDelay = `${index * 0.1}s`;
 });
 
+// Añadir animación de aparición a los process steps con delay
+document.querySelectorAll('.process-step').forEach((item, index) => {
+  item.style.animationDelay = `${index * 0.15}s`;
+});
 
+// Offer video autoplay handler
+const offerVideo = document.querySelector('.offer-video');
+
+if (offerVideo) {
+  // Intentar reproducir el video
+  offerVideo.play().catch(error => {
+    console.log('Autoplay del video de oferta bloqueado, intentando con interacción del usuario');
+    // Si el autoplay falla, intentar reproducir cuando el usuario interactúe
+    document.addEventListener('click', () => {
+      offerVideo.play().catch(err => {
+        console.error('Error al reproducir video de oferta:', err);
+      });
+    }, { once: true });
+  });
+  
+  // Manejar errores de carga del video
+  offerVideo.addEventListener('error', (e) => {
+    console.error('Error al cargar el video de oferta:', e);
+  });
+  
+  // Asegurar que el video esté cargado
+  offerVideo.addEventListener('loadeddata', () => {
+    console.log('Video de oferta cargado correctamente');
+  });
+}
