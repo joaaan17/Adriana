@@ -184,10 +184,38 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
+// Observer específico para la animación de escritura
+const typingObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
+      entry.target.classList.add('animate');
+      typingObserver.unobserve(entry.target); // Solo animar una vez
+    }
+  });
+}, {
+  threshold: 0.5,
+  rootMargin: '0px'
+});
+
 // Observe elements for animation
 document.querySelectorAll('.service-item, .process-step, .faq-item, .services-title-wrapper, .process-header, .faqs-header, .offer-banner').forEach((element) => {
   element.classList.add('animate-on-scroll');
   observer.observe(element);
+});
+
+// Observe typing animation
+const typingElements = document.querySelectorAll('.typing-animation');
+typingElements.forEach(element => {
+  // Para el hero, iniciar inmediatamente
+  if (element.classList.contains('hero-heading')) {
+    // Esperar a que las fuentes carguen y luego animar
+    setTimeout(() => {
+      element.classList.add('animate');
+    }, 500);
+  } else {
+    // Para otros elementos, usar intersection observer
+    typingObserver.observe(element);
+  }
 });
 
 // Añadir animación de aparición a las service cards con delay
