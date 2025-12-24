@@ -31,6 +31,17 @@ body {
   }
 }
 
+@keyframes fadeInUpLight {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -310,7 +321,6 @@ body {
   position: relative;
   min-width: 0;
   overflow: hidden;
-  animation: slideInLeft 1s ease-out;
 }
 
 .hero-right {
@@ -379,9 +389,10 @@ body {
   line-height: 24px;
   letter-spacing: -0.16px;
   color: #312920;
-  opacity: 0.7;
   margin: 0;
   max-width: 463px;
+  animation: fadeInUpLight 1s ease-out 0.8s forwards;
+  opacity: 0;
 }
 
 .btn-hero {
@@ -400,6 +411,8 @@ body {
   justify-content: center;
   width: fit-content;
   transition: all 0.3s ease;
+  animation: fadeInUp 1s ease-out 1s forwards;
+  opacity: 0;
 }
 
 .btn-hero:hover {
@@ -414,7 +427,6 @@ body {
   overflow: hidden;
   position: relative;
   min-width: 0;
-  animation: slideInRight 1s ease-out;
 }
 
 .hero-image {
@@ -423,7 +435,6 @@ body {
   object-fit: cover;
   object-position: top center;
   display: block;
-  animation: scaleIn 1.2s ease-out forwards;
 }
 
 /* Services Section */
@@ -537,11 +548,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.service-item:hover .service-image img {
-  transform: scale(1.05);
 }
 
 .service-info {
@@ -698,11 +704,14 @@ body {
 }
 
 .process-title {
-  font-size: 64px;
-  line-height: 0;
-  letter-spacing: -4px;
-  color: #fff;
+  color: #FFF;
   text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px;
+  letter-spacing: -2px;
   margin: 0;
   padding-bottom: 40px;
 }
@@ -712,8 +721,7 @@ body {
   font-weight: 600;
   font-style: normal;
   display: block;
-  line-height: 64px;
-  padding-bottom: 4px;
+  line-height: 60px;
   color: #FFFFFF;
 }
 
@@ -722,9 +730,9 @@ body {
   font-style: italic;
   font-weight: 400;
   display: block;
-  line-height: 64px;
-  margin-bottom: -16px;
+  line-height: 60px;
   color: #FFFFFF;
+  margin-top: -8px;
 }
 
 .process-grid {
@@ -992,10 +1000,7 @@ body {
   box-shadow: 
     0 0 0 16px rgba(255, 255, 255, 0.3),
     0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.offer-banner.animate-on-scroll {
-  opacity: 1;
+  opacity: 0;
 }
 
 .offer-banner.animate-on-scroll.animated {
