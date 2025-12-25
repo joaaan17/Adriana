@@ -105,16 +105,34 @@ const menuIcon = document.getElementById('menuIcon');
 const closeIcon = document.getElementById('closeIcon');
 
 if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
-  mobileMenuBtn.addEventListener('click', () => {
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     const isHidden = mobileMenu.classList.contains('hidden');
     if (isHidden) {
       mobileMenu.classList.remove('hidden');
       menuIcon.classList.add('hidden');
       closeIcon.classList.remove('hidden');
+      // Prevent body scroll when menu is open on mobile
+      if (window.innerWidth < 1024) {
+        document.body.style.overflow = 'hidden';
+      }
     } else {
       mobileMenu.classList.add('hidden');
       menuIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.classList.contains('hidden') && 
+        !mobileMenu.contains(e.target) && 
+        !mobileMenuBtn.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      document.body.style.overflow = '';
     }
   });
 
@@ -125,7 +143,22 @@ if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
       mobileMenu.classList.add('hidden');
       menuIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
+      document.body.style.overflow = '';
     });
+  });
+
+  // Handle resize event
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth >= 1024) {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }, 250);
   });
 }
 
@@ -160,7 +193,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(href);
     if (target) {
       const navbarHeight = navbarContainer ? navbarContainer.offsetHeight + 40 : 80;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      // Ajuste adicional para móviles
+      const mobileOffset = window.innerWidth < 768 ? 20 : 0;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - mobileOffset;
       
       window.scrollTo({
         top: targetPosition,

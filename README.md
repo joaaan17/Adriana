@@ -63,10 +63,69 @@ Actualiza los enlaces en `index.html`:
 
 ## 📱 Responsive
 
-El sitio está completamente optimizado para:
-- **Móvil**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
+El sitio está completamente optimizado con diseño responsive avanzado para todos los dispositivos:
+
+### Breakpoints
+- **Desktop XL**: > 1400px
+- **Desktop**: 1200px - 1400px
+- **Tablet Landscape**: 992px - 1200px
+- **Tablet Portrait**: 768px - 992px
+- **Mobile Large**: 576px - 768px
+- **Mobile Medium**: 480px - 576px
+- **Mobile Small**: 380px - 480px
+- **Mobile XS**: < 380px
+
+### Optimizaciones Responsive
+
+#### Navegación
+- Menú hamburguesa para dispositivos móviles (<1024px)
+- Menú desplegable animado con blur effect
+- Logo adaptable según tamaño de pantalla
+- Navbar con scroll inteligente (oculta/muestra según dirección)
+
+#### Hero Section
+- Layout adaptable: grid de 2 columnas en desktop, 1 columna en móvil
+- Tipografía fluida: desde 64px en desktop hasta 24px en móviles pequeños
+- Imágenes optimizadas con object-position adaptativo
+- Espaciado y padding ajustados por breakpoint
+
+#### Servicios
+- Grid de 4 columnas en desktop
+- Grid de 2 columnas en tablet
+- Grid de 1 columna en móvil
+- Imágenes con efecto hover y lazy loading
+- Textos escalables manteniendo legibilidad
+
+#### Proceso
+- Layout de 4 columnas en desktop, 2 en tablet, 1 en móvil
+- Números de pasos con tamaños adaptables
+- Altura automática en móviles
+- Espaciado optimizado por breakpoint
+
+#### FAQs
+- Botones de toggle con tamaño mínimo táctil (44px)
+- Tipografía ajustada para mejor legibilidad
+- Espaciado entre items optimizado
+
+#### Oferta
+- Banner central responsive con escala adaptable
+- Video de fondo con posicionamiento ajustado
+- Botones con padding optimizado para touch
+
+#### Footer
+- Layout de 2 columnas en desktop
+- Layout de 1 columna en móvil
+- Iconos sociales con tamaño adaptable
+- Textos escalables
+
+### Características Técnicas
+- **Touch Optimizations**: Áreas táctiles mínimas de 44px
+- **Tap Highlight**: Eliminado para mejor experiencia
+- **Smooth Scroll**: Con fallback para motion reducido
+- **iOS Optimizations**: -webkit-overflow-scrolling y text-size-adjust
+- **Performance**: Lazy loading de imágenes
+- **Accessibility**: Support para prefers-reduced-motion
+- **Overflow**: Control de scroll del body en menú móvil abierto
 
 ## 📝 Notas
 
