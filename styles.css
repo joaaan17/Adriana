@@ -18,6 +18,7 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
+
 /* Optimización de rendimiento */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -45,6 +46,7 @@ body {
 }
 
 /* Los estilos de h2 están en h2.css */
+
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
@@ -653,7 +655,7 @@ body {
 
 .services-intro-text {
   font-family: 'Inter Display', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.16px;
@@ -664,7 +666,7 @@ body {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 40px;
   margin-bottom: 80px;
 }
 
@@ -715,17 +717,17 @@ body {
 .service-title {
   font-family: 'Lora', serif;
   font-size: 24px;
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 700; /* Bold */
+  font-style: normal; /* Sin italic */
   line-height: 24px;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.8px;
   color: #312920;
   margin: 0;
 }
 
 .service-description {
   font-family: 'Inter Display', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 140%;
   letter-spacing: -0.16px;
@@ -806,7 +808,6 @@ body {
 .process-container {
   position: relative;
   width: 100%;
-  max-width: 1872px;
   border-radius: 16px;
   overflow: hidden;
   padding: 160px 40px 80px;
@@ -841,6 +842,8 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-bottom: 40px;
+  margin: auto;
+  max-width: 1200px;
 }
 
 .process-step {
@@ -871,17 +874,17 @@ body {
 .process-step-title {
   font-family: 'Lora', serif;
   font-size: 24px;
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 700; /* Bold */
+  font-style: normal; /* Sin italic */
   line-height: 24px;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.8px;
   color: #fff;
   margin: 0;
 }
 
 .process-step-description {
   font-family: 'Inter Display', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 140%;
   letter-spacing: -0.16px;
@@ -942,6 +945,7 @@ body {
   padding: 28px 0;
   border-bottom: 1px solid #312920;
   position: relative;
+  cursor: pointer; /* Indica que todo el bloque es clickeable */
 }
 
 .faq-item:first-child {
@@ -1384,7 +1388,7 @@ body {
   .services-grid,
   .process-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
   }
 
   .services-grid {
@@ -1401,7 +1405,7 @@ body {
   }
 
   .service-description {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .process-step {
@@ -1415,7 +1419,7 @@ body {
   }
 
   .process-step-description {
-    font-size: 15px;
+    font-size: 16px;
     max-width: 100%;
   }
 
@@ -1574,12 +1578,12 @@ body {
   }
 
   .services-intro-text {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 21px;
   }
 
   .services-grid {
-    gap: 28px;
+    gap: 40px;
     margin-bottom: 50px;
   }
 
@@ -1593,7 +1597,7 @@ body {
   }
 
   .service-description {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .process-container {
@@ -1625,7 +1629,7 @@ body {
   }
 
   .process-step-description {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .faq-question {
@@ -1790,7 +1794,7 @@ body {
   }
 
   .services-grid {
-    gap: 24px;
+    gap: 40px;
     margin-bottom: 40px;
   }
 

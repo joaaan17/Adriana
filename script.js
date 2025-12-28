@@ -1,3 +1,13 @@
+// Función para activar animación de typing
+function activateTypingAnimation(element) {
+  if (element) {
+    element.classList.add('fonts-loaded');
+    setTimeout(() => {
+      element.classList.add('animate');
+    }, 100);
+  }
+}
+
 // Font loading handler para evitar FOUT (Flash of Unstyled Text)
 if ('fonts' in document) {
   Promise.all([
@@ -6,19 +16,23 @@ if ('fonts' in document) {
     document.fonts.load('600 64px Lora')
   ]).then(() => {
     const heroHeading = document.querySelector('.hero-heading');
-    if (heroHeading) {
-      heroHeading.classList.add('fonts-loaded');
-      // Activar la animación de typing
-      setTimeout(() => {
-        heroHeading.classList.add('animate');
-      }, 100);
-    }
+    activateTypingAnimation(heroHeading);
+    
+    // Activar animación para services-footer-title también
+    const servicesFooterTitle = document.querySelector('.services-footer-title.typing-animation');
+    activateTypingAnimation(servicesFooterTitle);
   }).catch(() => {
     // Fallback: mostrar el texto aunque las fuentes no se hayan cargado
     const heroHeading = document.querySelector('.hero-heading');
     if (heroHeading) {
       heroHeading.classList.add('fonts-loaded');
       heroHeading.classList.add('animate');
+    }
+    
+    const servicesFooterTitle = document.querySelector('.services-footer-title.typing-animation');
+    if (servicesFooterTitle) {
+      servicesFooterTitle.classList.add('fonts-loaded');
+      servicesFooterTitle.classList.add('animate');
     }
   });
 
@@ -29,6 +43,12 @@ if ('fonts' in document) {
       heroHeading.classList.add('fonts-loaded');
       heroHeading.classList.add('animate');
     }
+    
+    const servicesFooterTitle = document.querySelector('.services-footer-title.typing-animation');
+    if (servicesFooterTitle && !servicesFooterTitle.classList.contains('fonts-loaded')) {
+      servicesFooterTitle.classList.add('fonts-loaded');
+      servicesFooterTitle.classList.add('animate');
+    }
   }, 1000);
 } else {
   // Fallback para navegadores sin Font Loading API
@@ -37,6 +57,12 @@ if ('fonts' in document) {
     if (heroHeading) {
       heroHeading.classList.add('fonts-loaded');
       heroHeading.classList.add('animate');
+    }
+    
+    const servicesFooterTitle = document.querySelector('.services-footer-title.typing-animation');
+    if (servicesFooterTitle) {
+      servicesFooterTitle.classList.add('fonts-loaded');
+      servicesFooterTitle.classList.add('animate');
     }
   });
 }
@@ -157,6 +183,26 @@ function toggleFAQ(index) {
   }
 }
 
+// Event delegation: hacer todo el bloque FAQ clickeable
+const faqsList = document.querySelector('.faqs-list');
+if (faqsList) {
+  faqsList.addEventListener('click', (e) => {
+    // Buscar el faq-item padre más cercano
+    const faqItem = e.target.closest('.faq-item');
+    if (!faqItem) return;
+    
+    // Extraer el índice del ID del faq-item (ej: "faq-0" -> 0)
+    const faqId = faqItem.getAttribute('id');
+    if (!faqId || !faqId.startsWith('faq-')) return;
+    
+    const index = parseInt(faqId.replace('faq-', ''), 10);
+    if (isNaN(index)) return;
+    
+    // Llamar a la función toggleFAQ
+    toggleFAQ(index);
+  });
+}
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -195,6 +241,26 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.service-item, .process-step, .faq-item, .services-title-wrapper, .process-header, .faqs-header, .offer-banner').forEach((element) => {
   element.classList.add('animate-on-scroll');
   observer.observe(element);
+});
+
+// Intersection Observer específico para elementos con typing-animation
+const typingObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const typingElement = entry.target;
+      if (!typingElement.classList.contains('animate')) {
+        typingElement.classList.add('animate');
+      }
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px 0px 0px'
+});
+
+// Observar todos los elementos con typing-animation
+document.querySelectorAll('.typing-animation').forEach((element) => {
+  typingObserver.observe(element);
 });
 
 // Añadir animación de aparición a las service cards con delay

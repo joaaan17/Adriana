@@ -54,6 +54,7 @@
   font-style: italic;
   font-weight: 400;
   line-height: 70px; /* Sincronizado con hero-heading */
+  color: #312920;
 }
 
 .services-footer-bold {
@@ -61,6 +62,7 @@
   font-weight: 700;
   font-style: normal;
   line-height: 70px; /* Sincronizado con hero-heading */
+  color: #312920;
 }
 
 /* Process Title - "El proceso, paso a paso" */
@@ -103,7 +105,7 @@
   text-align: center;
   margin: 0;
   display: flex;
-  gap: 16px;
+  gap: 10px;
   align-items: baseline;
   flex-wrap: wrap;
   justify-content: center;
