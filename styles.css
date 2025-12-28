@@ -715,10 +715,10 @@ body {
 }
 
 .service-title {
-  font-family: 'Lora', serif;
+  font-family: 'Libre Caslon Text', serif;
   font-size: 24px;
   font-weight: 700; /* Bold */
-  font-style: normal; /* Sin italic */
+  font-style: italic; /* Italic */
   line-height: 24px;
   letter-spacing: -0.8px;
   color: #312920;
@@ -872,10 +872,10 @@ body {
 }
 
 .process-step-title {
-  font-family: 'Lora', serif;
+  font-family: 'Libre Caslon Text', serif;
   font-size: 24px;
   font-weight: 700; /* Bold */
-  font-style: normal; /* Sin italic */
+  font-style: italic; /* Italic */
   line-height: 24px;
   letter-spacing: -0.8px;
   color: #fff;

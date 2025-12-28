@@ -210,10 +210,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (href === '#' || href === '#contacto') return;
     
     e.preventDefault();
+    
     const target = document.querySelector(href);
     if (target) {
-      const navbarHeight = navbarContainer ? navbarContainer.offsetHeight + 40 : 80;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      // Posicionar la sección al top de la página sin offset
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
       
       window.scrollTo({
         top: targetPosition,
