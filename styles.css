@@ -1243,10 +1243,15 @@ body {
 }
 
 @media (max-width: 1200px) {
+  .hero-section {
+    max-height: none; /* Permite que el hero crezca según el contenido */
+  }
+
   .hero-container {
     grid-template-columns: 1fr;
     height: auto;
     gap: 16px;
+    max-height: none; /* Asegura que no haya límite de altura */
   }
 
   .hero-left {
