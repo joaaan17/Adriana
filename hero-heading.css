@@ -1,0 +1,180 @@
+/* ============================================
+   HERO HEADING STYLES
+   Archivo dedicado para el título principal
+   ============================================ */
+
+/* ===== ESTILOS BASE (Desktop) ===== */
+
+.hero-heading {
+  display: block; /* Flujo de texto normal para control de word-spacing */
+  margin: 0;
+  padding-bottom: 16px;
+  line-height: 70px; /* 80% de 64px */
+  word-spacing: 6px; /* -8% de 64px */
+}
+
+.hero-heading { 
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+.hero-heading.fonts-loaded {
+  opacity: 1;
+}
+
+.hero-heading-italic {
+  color: #312920;
+  text-align: left;
+  font-family: 'Lora', serif;
+  font-size: 64px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: -4px;
+}
+
+.hero-heading-bold {
+  color: #312920;
+  text-align: left;
+  font-family: 'Lora', serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px;
+  letter-spacing: -4px;
+  margin-top: -20px; /* Ajuste visual para alineación */
+}
+
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablet Grande (≤1400px) */
+@media (max-width: 1400px) {
+  .hero-heading-italic,
+  .hero-heading-bold {
+    font-size: 56px;
+  }
+  .hero-heading { 
+    word-spacing: 4px;
+    line-height: 60px;
+  }
+
+
+  
+  /* Nota: .hero-heading usa valores base, se ajusta en breakpoints menores */
+}
+
+/* Tablet (≤1200px) */
+@media (max-width: 1200px) {
+  .hero-heading-italic,
+  .hero-heading-bold {
+    font-size: 52px;
+    line-height: 52px;
+  }
+  .hero-heading { 
+    word-spacing: 2px;
+    line-height: 60px;
+  }
+
+}
+
+/* Tablet Pequeña (≤992px) */
+@media (max-width: 992px) {
+  .hero-heading-italic,
+  .hero-heading-bold {
+    font-size: 44px;
+    line-height: 44px;
+    letter-spacing: -2px;
+  }
+
+  .hero-heading { 
+    word-spacing: 2px;
+    line-height: 48px;
+  }
+}
+  
+
+/* Mobile Grande (≤768px) */
+@media (max-width: 768px) {
+  .hero-heading-italic,
+  .hero-heading-bold {
+    font-size: 38px;
+    line-height: 38px;
+    letter-spacing: -2px;
+  }
+
+  .hero-heading {
+    padding-bottom: 12px;
+    line-height: 40px; /* 80% de 38px */
+    word-spacing: -2px; /* -8% de 38px */
+  }
+}
+
+/* Mobile (≤576px) */
+@media (max-width: 576px) {
+  .hero-heading-italic,
+  .hero-heading-bold {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-heading {
+    padding-bottom: 10px;
+    line-height: 36px; /* 80% de 32px */
+    word-spacing: -2px; /* -8% de 32px */
+  }
+}
+
+/* Mobile Pequeño (≤480px) */
+@media (max-width: 480px) {
+  .hero-heading-italic,
+  .hero-heading-bold {
+    font-size: 28px;
+    line-height: 28px;
+    letter-spacing: -1px;
+  }
+
+  .hero-heading {
+    padding-bottom: 8px;
+    line-height: 30px; /* 80% de 28px */
+    word-spacing: -2.24px; /* -8% de 28px */
+  }
+}
+
+/* Mobile Muy Pequeño (≤380px) */
+@media (max-width: 380px) {
+  .hero-heading-italic,
+  .hero-heading-bold {
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: -0.8px;
+  }
+
+  .hero-heading {
+    padding-bottom: 6px;
+    line-height: 19.2px; /* 80% de 24px */
+    word-spacing: -1.92px; /* -8% de 24px */
+  }
+}
+
+
+/* ============================================
+   RESUMEN DE VALORES POR BREAKPOINT
+   
+   Font-size | line-height | word-spacing
+   ----------------------------------------
+   64px      | 51.2px      | -5.12px     (Desktop)
+   56px      | (heredado)  | (heredado)  (≤1400px)
+   52px      | (heredado)  | (heredado)  (≤1200px)
+   44px      | (heredado)  | (heredado)  (≤992px)
+   38px      | 30.4px      | -3.04px     (≤768px)
+   32px      | 25.6px      | -2.56px     (≤576px)
+   28px      | 22.4px      | -2.24px     (≤480px)
+   24px      | 19.2px      | -1.92px     (≤380px)
+   
+   Fórmulas:
+   - line-height = font-size × 0.8
+   - word-spacing = font-size × -0.08
+   ============================================ */
+

@@ -1,4 +1,8 @@
 /* Reset y base */
+
+/* Importar estilos del Hero Heading */
+@import url('hero-heading.css');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +13,6 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -webkit-overflow-scrolling: touch;
-}
-
-h2 {
-gap:8px !important  
 }
 
 /* Optimización de rendimiento */
@@ -525,51 +525,7 @@ body {
   align-items: flex-start;
 }
 
-.hero-heading {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding-bottom: 16px;
-  gap: 18px;
-  align-items: flex-start;
-}
-
-.hero-heading { 
-  opacity: 0;
-  transition: opacity 0.6s ease-in;
-}
-
-.hero-heading.fonts-loaded {
-  opacity: 1;
-}
-
-/* Forzar salto de línea después de la primera línea */
-.hero-line-2 {
-  width: 100%;
-}
-
-.hero-heading-italic {
-  color: #312920;
-  text-align: left;
-  font-family: 'Lora', serif;
-  font-size: 64px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 64px;
-  letter-spacing: -4px;
-}
-
-.hero-heading-bold {
-  color: #312920;
-  text-align: left;
-  font-family: 'Lora', serif;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 64px;
-  letter-spacing: -4px;
-  margin-top: -20px;
-}
+/* Los estilos de .hero-heading están en hero-heading.css */
 
 .hero-description {
   font-family: 'Inter Display', sans-serif;
@@ -1403,12 +1359,6 @@ body {
 
 /* Responsive */
 @media (max-width: 1400px) {
-  .hero-heading-italic,
-  .hero-heading-bold {
-    font-size: 56px;
-    line-height: 56px;
-  }
-
   .navbar-logo {
     font-size: 18px;
   }
@@ -1434,12 +1384,6 @@ body {
 
   .process-container {
     padding: 140px 40px 70px;
-  }
-
-  .hero-heading-italic,
-  .hero-heading-bold {
-    font-size: 52px;
-    line-height: 52px;
   }
 
   .services-header {
@@ -1491,13 +1435,6 @@ body {
 }
 
 @media (max-width: 992px) {
-  .hero-heading-italic,
-  .hero-heading-bold {
-    font-size: 44px;
-    line-height: 44px;
-    letter-spacing: -2px;
-  }
-
   .hero-left {
     padding: 28px;
   }
@@ -1544,18 +1481,6 @@ body {
 
   .hero-container {
     max-height: none;
-  }
-
-  .hero-heading-italic,
-  .hero-heading-bold {
-    font-size: 38px;
-    line-height: 38px;
-    letter-spacing: -2px;
-  }
-
-  .hero-heading {
-    gap: 18px;
-    padding-bottom: 12px;
   }
 
   .hero-left {
@@ -1782,18 +1707,6 @@ body {
 
   .mobile-menu-btn {
     padding: 6px;
-  }
-
-  .hero-heading-italic,
-  .hero-heading-bold {
-    font-size: 32px;
-    line-height: 32px;
-    letter-spacing: -1.5px;
-  }
-
-  .hero-heading {
-    gap: 16px;
-    padding-bottom: 10px;
   }
 
   .hero-left {
@@ -2050,18 +1963,6 @@ body {
     padding: 70px 16px 32px;
   }
 
-  .hero-heading-italic,
-  .hero-heading-bold {
-    font-size: 28px;
-    line-height: 28px;
-    letter-spacing: -1px;
-  }
-
-  .hero-heading {
-    gap: 16px;
-    padding-bottom: 8px;
-  }
-
   .hero-left {
     padding: 20px;
     min-height: 380px;
@@ -2177,18 +2078,6 @@ body {
   .navbar-logo {
     font-size: 14px;
     line-height: 24px;
-  }
-
-  .hero-heading-italic,
-  .hero-heading-bold {
-    font-size: 24px;
-    line-height: 24px;
-    letter-spacing: -0.8px;
-  }
-
-  .hero-heading {
-    gap: 14px;
-    padding-bottom: 6px;
   }
 
   .hero-left {

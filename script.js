@@ -8,12 +8,17 @@ if ('fonts' in document) {
     const heroHeading = document.querySelector('.hero-heading');
     if (heroHeading) {
       heroHeading.classList.add('fonts-loaded');
+      // Activar la animación de typing
+      setTimeout(() => {
+        heroHeading.classList.add('animate');
+      }, 100);
     }
   }).catch(() => {
     // Fallback: mostrar el texto aunque las fuentes no se hayan cargado
     const heroHeading = document.querySelector('.hero-heading');
     if (heroHeading) {
       heroHeading.classList.add('fonts-loaded');
+      heroHeading.classList.add('animate');
     }
   });
 
@@ -22,6 +27,7 @@ if ('fonts' in document) {
     const heroHeading = document.querySelector('.hero-heading');
     if (heroHeading && !heroHeading.classList.contains('fonts-loaded')) {
       heroHeading.classList.add('fonts-loaded');
+      heroHeading.classList.add('animate');
     }
   }, 1000);
 } else {
@@ -30,6 +36,7 @@ if ('fonts' in document) {
     const heroHeading = document.querySelector('.hero-heading');
     if (heroHeading) {
       heroHeading.classList.add('fonts-loaded');
+      heroHeading.classList.add('animate');
     }
   });
 }
@@ -105,34 +112,16 @@ const menuIcon = document.getElementById('menuIcon');
 const closeIcon = document.getElementById('closeIcon');
 
 if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
-  mobileMenuBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
+  mobileMenuBtn.addEventListener('click', () => {
     const isHidden = mobileMenu.classList.contains('hidden');
     if (isHidden) {
       mobileMenu.classList.remove('hidden');
       menuIcon.classList.add('hidden');
       closeIcon.classList.remove('hidden');
-      // Prevent body scroll when menu is open on mobile
-      if (window.innerWidth < 1024) {
-        document.body.style.overflow = 'hidden';
-      }
     } else {
       mobileMenu.classList.add('hidden');
       menuIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!mobileMenu.classList.contains('hidden') && 
-        !mobileMenu.contains(e.target) && 
-        !mobileMenuBtn.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      menuIcon.classList.remove('hidden');
-      closeIcon.classList.add('hidden');
-      document.body.style.overflow = '';
     }
   });
 
@@ -143,22 +132,7 @@ if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
       mobileMenu.classList.add('hidden');
       menuIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
-      document.body.style.overflow = '';
     });
-  });
-
-  // Handle resize event
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      if (window.innerWidth >= 1024) {
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        document.body.style.overflow = '';
-      }
-    }, 250);
   });
 }
 
@@ -193,9 +167,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(href);
     if (target) {
       const navbarHeight = navbarContainer ? navbarContainer.offsetHeight + 40 : 80;
-      // Ajuste adicional para móviles
-      const mobileOffset = window.innerWidth < 768 ? 20 : 0;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - mobileOffset;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
       
       window.scrollTo({
         top: targetPosition,
@@ -219,38 +191,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observer específico para la animación de escritura
-const typingObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
-      entry.target.classList.add('animate');
-      typingObserver.unobserve(entry.target); // Solo animar una vez
-    }
-  });
-}, {
-  threshold: 0.5,
-  rootMargin: '0px'
-});
-
 // Observe elements for animation
 document.querySelectorAll('.service-item, .process-step, .faq-item, .services-title-wrapper, .process-header, .faqs-header, .offer-banner').forEach((element) => {
   element.classList.add('animate-on-scroll');
   observer.observe(element);
-});
-
-// Observe typing animation
-const typingElements = document.querySelectorAll('.typing-animation');
-typingElements.forEach(element => {
-  // Para el hero, iniciar inmediatamente
-  if (element.classList.contains('hero-heading')) {
-    // Esperar a que las fuentes carguen y luego animar
-    setTimeout(() => {
-      element.classList.add('animate');
-    }, 500);
-  } else {
-    // Para otros elementos, usar intersection observer
-    typingObserver.observe(element);
-  }
 });
 
 // Añadir animación de aparición a las service cards con delay
