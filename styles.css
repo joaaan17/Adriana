@@ -3,6 +3,9 @@
 /* Importar estilos del Hero Heading */
 @import url('hero-heading.css');
 
+/* Importar estilos de H2 */
+@import url('h2.css');
+
 * {
   margin: 0;
   padding: 0;
@@ -40,6 +43,8 @@ body {
   font-size: 16px;
   overflow-x: hidden;
 }
+
+/* Los estilos de h2 están en h2.css */
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
@@ -637,33 +642,7 @@ body {
   color: #fff;
 }
 
-.services-title {
-  font-size: 64px;
-  line-height: 0;
-  letter-spacing: -4px;
-  color: #312920;
-  margin: 0;
-  padding-bottom: 16px;
-  text-align: left;
-}
-
-.services-title-bold {
-  font-family: 'Lora', serif;
-  font-weight: 600;
-  font-style: normal;
-  display: block;
-  line-height: 64px;
-  padding-bottom: 4px;
-}
-
-.services-title-italic {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-weight: 400;
-  display: block;
-  line-height: 64px;
-  margin-bottom: -16px;
-}
+/* Estilos de services-title están en h2.css */
 
 .services-intro {
   max-width: 600px;
@@ -761,32 +740,7 @@ body {
   gap: 80px;
 }
 
-.services-footer-title {
-  font-size: 64px;
-  line-height: 64px;
-  letter-spacing: -4px;
-  color: #312920;
-  text-align: center;
-  margin: 0;
-  padding-bottom: 16px;
-  display: flex;
-  gap: 16px;
-  align-items: baseline;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.services-footer-italic {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-.services-footer-bold {
-  font-family: 'Lora', serif;
-  font-weight: 600;
-  font-style: normal;
-}
+/* Estilos de services-footer-title están en h2.css */
 
 .btn-services {
   border: 1px solid #312920;
@@ -880,37 +834,7 @@ body {
   margin-bottom: 80px;
 }
 
-.process-title {
-  color: #FFF;
-  text-align: center;
-  font-family: 'Lora', serif;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 60px;
-  letter-spacing: -2px;
-  margin: 0;
-  padding-bottom: 40px;
-}
-
-.process-title-regular {
-  font-family: 'Lora', serif;
-  font-weight: 600;
-  font-style: normal;
-  display: block;
-  line-height: 60px;
-  color: #FFFFFF;
-}
-
-.process-title-italic {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-weight: 400;
-  display: block;
-  line-height: 60px;
-  color: #FFFFFF;
-  margin-top: -8px;
-}
+/* Los estilos de .process-title están en h2.css */
 
 .process-grid {
   display: grid;
@@ -1005,33 +929,7 @@ body {
   margin-bottom: 80px;
 }
 
-.faqs-title {
-  font-size: 64px;
-  line-height: 64px;
-  letter-spacing: -4px;
-  color: #312920;
-  text-align: center;
-  margin: 0;
-  display: flex;
-  gap: 16px;
-  align-items: baseline;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.faqs-title-regular {
-  font-family: 'Lora', serif;
-  font-weight: 600;
-  font-style: normal;
-  color: #312920;
-}
-
-.faqs-title-italic {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-weight: 400;
-  color: #312920;
-}
+/* Los estilos de .faqs-title están en h2.css */
 
 .faqs-list {
   display: flex;
@@ -1222,27 +1120,7 @@ body {
   color: #fff;
 }
 
-.offer-title {
-  display: flex;
-  flex-direction: column;
-  font-size: 52px;
-  line-height: 58.24px;
-  letter-spacing: -1.04px;
-  color: #fff;
-  margin: 0;
-  padding: 0 0 16px;
-}
-
-.offer-title-italic {
-  font-family: 'Libre Caslon Text', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-.offer-title-bold {
-  font-family: 'Libre Caslon Text', serif;
-  font-weight: 500;
-}
+/* Los estilos de .offer-title están en h2.css */
 
 .offer-subtitle {
   font-family: 'Inter Display', sans-serif;
@@ -1404,27 +1282,6 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .services-title,
-  .services-footer-title,
-  .process-title {
-    font-size: 52px;
-    line-height: 0;
-  }
-  
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 52px;
-  }
-
-  .faqs-title {
-    font-size: 52px;
-    line-height: 52px;
-  }
-
   .services-section {
     padding: 120px 0 60px;
   }
@@ -1512,29 +1369,6 @@ body {
 
   .services-header {
     margin-bottom: 60px;
-  }
-
-  .services-title,
-  .services-footer-title,
-  .process-title,
-  .faqs-title {
-    font-size: 40px;
-    line-height: 0;
-    letter-spacing: -2px;
-  }
-
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 40px;
-  }
-
-  .faqs-title {
-    font-size: 40px;
-    line-height: 40px;
   }
 
   .services-intro-text {
@@ -1635,12 +1469,6 @@ body {
       0 10px 28px rgba(0, 0, 0, 0.25);
   }
 
-  .offer-title {
-    font-size: 36px;
-    line-height: 40px;
-    padding: 0 0 12px;
-  }
-
   .offer-subtitle {
     font-size: 15px;
     margin: 0 0 12px;
@@ -1738,28 +1566,6 @@ body {
 
   .services-header {
     margin-bottom: 50px;
-  }
-
-  .services-title,
-  .services-footer-title,
-  .process-title,
-  .faqs-title {
-    font-size: 34px;
-    line-height: 0;
-  }
-
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 34px;
-  }
-
-  .faqs-title {
-    font-size: 34px;
-    line-height: 34px;
   }
 
   .services-intro-text {
@@ -1875,12 +1681,6 @@ body {
       0 8px 24px rgba(0, 0, 0, 0.25);
   }
 
-  .offer-title {
-    font-size: 32px;
-    line-height: 36px;
-    padding: 0 0 10px;
-  }
-
   .offer-subtitle {
     font-size: 14px;
     line-height: 20px;
@@ -1984,28 +1784,6 @@ body {
     margin-bottom: 40px;
   }
 
-  .services-title,
-  .services-footer-title,
-  .process-title,
-  .faqs-title {
-    font-size: 28px;
-    line-height: 0;
-  }
-
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 28px;
-  }
-
-  .faqs-title {
-    font-size: 28px;
-    line-height: 28px;
-  }
-
   .services-grid {
     gap: 24px;
     margin-bottom: 40px;
@@ -2064,11 +1842,6 @@ body {
     border-radius: 24px;
   }
 
-  .offer-title {
-    font-size: 28px;
-    line-height: 32px;
-  }
-
   .container {
     padding: 0 16px;
   }
@@ -2105,33 +1878,6 @@ body {
 
   .process-container {
     padding: 60px 12px 28px;
-  }
-
-  .services-title,
-  .services-footer-title,
-  .process-title,
-  .faqs-title {
-    font-size: 24px;
-    line-height: 0;
-  }
-
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 24px;
-  }
-
-  .faqs-title {
-    font-size: 24px;
-    line-height: 24px;
-  }
-
-  .offer-title {
-    font-size: 24px;
-    line-height: 28px;
   }
 
   .offer-subtitle {

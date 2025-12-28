@@ -1,0 +1,427 @@
+/* ============================================
+   H2 TITLES STYLES
+   Archivo dedicado para todos los títulos H2
+   ============================================ */
+
+/* ===== ESTILOS BASE (Desktop) ===== */
+
+/* Services Title - "Cada diseño es único" */
+.services-title {
+  font-family: 'Lora', serif;
+  font-size: 64px;
+  line-height: 70px; /* Sincronizado con hero-heading */
+  letter-spacing: -4px;
+  color: #312920;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  word-spacing: 6px; /* Sincronizado con hero-heading */
+}
+
+.services-title-bold {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+.services-title-italic {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+/* Services Footer Title - "porque cada rostro es único" */
+.services-footer-title {
+  font-family: 'Lora', serif;
+  font-size: 64px;
+  line-height: 70px; /* Sincronizado con hero-heading */
+  letter-spacing: -4px;
+  color: #312920;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  word-spacing: 6px; /* Sincronizado con hero-heading */
+}
+
+.services-footer-italic {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+.services-footer-bold {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+/* Process Title - "El proceso, paso a paso" */
+.process-title {
+  color: #FFF;
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 70px; /* Sincronizado con hero-heading */
+  letter-spacing: -2px;
+  margin: 0;
+  padding-bottom: 40px;
+  word-spacing: 6px; /* Sincronizado con hero-heading */
+}
+
+.process-title-regular {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-style: normal;
+  display: block;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+.process-title-italic {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 400;
+  display: block;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+/* FAQs Title - "¿Aún tienes dudas?" */
+.faqs-title {
+  font-size: 64px;
+  line-height: 70px; /* Sincronizado con hero-heading */
+  letter-spacing: -4px;
+  color: #312920;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+  word-spacing: 6px; /* Sincronizado con hero-heading */
+}
+
+.faqs-title-regular {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+.faqs-title-italic {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 70px; /* Sincronizado con hero-heading */
+}
+
+/* Offer Title - "trazos que marcan tu esencia" */
+.offer-title {
+  display: flex;
+  flex-direction: column;
+  font-size: 52px;
+  line-height: 58.24px;
+  letter-spacing: -1.04px;
+  color: #fff;
+  margin: 0;
+  padding: 0 0 16px;
+}
+
+.offer-title-italic {
+  font-family: 'Libre Caslon Text', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.offer-title-bold {
+  font-family: 'Libre Caslon Text', serif;
+  font-weight: 500;
+}
+
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablet Grande (≤1400px) */
+@media (max-width: 1400px) {
+  .services-title,
+  .services-footer-title,
+  .process-title {
+    font-size: 52px;
+    line-height: 60px; /* Sincronizado con hero-heading */
+    word-spacing: 4px; /* Sincronizado con hero-heading */
+  }
+  
+  .services-title-bold,
+  .services-title-italic,
+  .services-footer-italic,
+  .services-footer-bold,
+  .process-title-regular,
+  .process-title-italic {
+    line-height: 60px; /* Sincronizado con hero-heading */
+  }
+
+  .faqs-title {
+    font-size: 52px;
+    line-height: 60px; /* Sincronizado con hero-heading */
+    word-spacing: 4px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title-regular,
+  .faqs-title-italic {
+    line-height: 60px; /* Sincronizado con hero-heading */
+  }
+}
+
+/* Tablet (≤1200px) */
+@media (max-width: 1200px) {
+  .services-title,
+  .services-footer-title,
+  .process-title {
+    line-height: 60px; /* Sincronizado con hero-heading */
+    word-spacing: 2px; /* Sincronizado con hero-heading */
+  }
+  
+  .services-title-bold,
+  .services-title-italic,
+  .services-footer-italic,
+  .services-footer-bold,
+  .process-title-regular,
+  .process-title-italic {
+    line-height: 60px; /* Sincronizado con hero-heading */
+  }
+
+  .faqs-title {
+    line-height: 60px; /* Sincronizado con hero-heading */
+    word-spacing: 2px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title-regular,
+  .faqs-title-italic {
+    line-height: 60px; /* Sincronizado con hero-heading */
+  }
+}
+
+/* Tablet Pequeña (≤992px) */
+@media (max-width: 992px) {
+  .services-title,
+  .services-footer-title,
+  .process-title,
+  .faqs-title {
+    font-size: 40px;
+    line-height: 48px; /* Sincronizado con hero-heading */
+    letter-spacing: -2px;
+    word-spacing: 2px; /* Sincronizado con hero-heading */
+  }
+
+  .services-title-bold,
+  .services-title-italic,
+  .services-footer-italic,
+  .services-footer-bold,
+  .process-title-regular,
+  .process-title-italic {
+    line-height: 48px; /* Sincronizado con hero-heading */
+  }
+
+  .faqs-title {
+    font-size: 40px;
+    line-height: 48px; /* Sincronizado con hero-heading */
+    word-spacing: 2px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title-regular,
+  .faqs-title-italic {
+    line-height: 48px; /* Sincronizado con hero-heading */
+  }
+
+  .offer-title {
+    font-size: 36px;
+    line-height: 40px;
+    padding: 0 0 12px;
+  }
+}
+
+/* Mobile Grande (≤768px) */
+@media (max-width: 768px) {
+  .services-title,
+  .services-footer-title,
+  .process-title,
+  .faqs-title {
+    font-size: 34px;
+    line-height: 40px; /* Sincronizado con hero-heading */
+    word-spacing: -2px; /* Sincronizado con hero-heading */
+  }
+
+  .services-title-bold,
+  .services-title-italic,
+  .services-footer-italic,
+  .services-footer-bold,
+  .process-title-regular,
+  .process-title-italic {
+    line-height: 40px; /* Sincronizado con hero-heading */
+  }
+
+  .faqs-title {
+    font-size: 34px;
+    line-height: 40px; /* Sincronizado con hero-heading */
+    word-spacing: -2px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title-regular,
+  .faqs-title-italic {
+    line-height: 40px; /* Sincronizado con hero-heading */
+  }
+
+  .offer-title {
+    font-size: 32px;
+    line-height: 36px;
+    padding: 0 0 10px;
+  }
+}
+
+/* Mobile (≤576px) */
+@media (max-width: 576px) {
+  .services-title,
+  .services-footer-title,
+  .process-title,
+  .faqs-title {
+    font-size: 28px;
+    line-height: 36px; /* Sincronizado con hero-heading */
+    word-spacing: -2px; /* Sincronizado con hero-heading */
+  }
+
+  .services-title-bold,
+  .services-title-italic,
+  .services-footer-italic,
+  .services-footer-bold,
+  .process-title-regular,
+  .process-title-italic {
+    line-height: 36px; /* Sincronizado con hero-heading */
+  }
+
+  .faqs-title {
+    font-size: 28px;
+    line-height: 36px; /* Sincronizado con hero-heading */
+    word-spacing: -2px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title-regular,
+  .faqs-title-italic {
+    line-height: 36px; /* Sincronizado con hero-heading */
+  }
+
+  .offer-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+/* Mobile Pequeño (≤480px) */
+@media (max-width: 480px) {
+  .services-title,
+  .services-footer-title,
+  .process-title,
+  .faqs-title {
+    font-size: 24px;
+    line-height: 30px; /* Sincronizado con hero-heading */
+    word-spacing: -2.24px; /* Sincronizado con hero-heading */
+  }
+
+  .services-title-bold,
+  .services-title-italic,
+  .services-footer-italic,
+  .services-footer-bold,
+  .process-title-regular,
+  .process-title-italic {
+    line-height: 30px; /* Sincronizado con hero-heading */
+  }
+
+  .faqs-title {
+    font-size: 24px;
+    line-height: 30px; /* Sincronizado con hero-heading */
+    word-spacing: -2.24px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title-regular,
+  .faqs-title-italic {
+    line-height: 30px; /* Sincronizado con hero-heading */
+  }
+
+  .offer-title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+/* Mobile Muy Pequeño (≤380px) */
+@media (max-width: 380px) {
+  .services-title,
+  .services-footer-title,
+  .process-title,
+  .faqs-title {
+    line-height: 19.2px; /* Sincronizado con hero-heading */
+    word-spacing: -1.92px; /* Sincronizado con hero-heading */
+  }
+  
+  .services-title-bold,
+  .services-title-italic,
+  .services-footer-italic,
+  .services-footer-bold,
+  .process-title-regular,
+  .process-title-italic {
+    line-height: 19.2px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title {
+    line-height: 19.2px; /* Sincronizado con hero-heading */
+    word-spacing: -1.92px; /* Sincronizado con hero-heading */
+  }
+  
+  .faqs-title-regular,
+  .faqs-title-italic {
+    line-height: 19.2px; /* Sincronizado con hero-heading */
+  }
+}
+
+
+/* ============================================
+   RESUMEN DE VALORES POR BREAKPOINT
+   
+   SINCRONIZADO CON HERO-HEADING
+   
+   Services/Process/FAQs Titles:
+   ---------------------------------------
+   Breakpoint | Font-size | line-height | word-spacing
+   Desktop    | 64px      | 70px        | 6px
+   ≤1400px    | 52px      | 60px        | 4px
+   ≤1200px    | 52px      | 60px        | 2px
+   ≤992px     | 40px      | 48px        | 2px
+   ≤768px     | 34px      | 40px        | -2px
+   ≤576px     | 28px      | 36px        | -2px
+   ≤480px     | 24px      | 30px        | -2.24px
+   ≤380px     | 24px      | 19.2px      | -1.92px
+   
+   Offer Title:
+   ---------------------------------------
+   Desktop    | 52px      | 58.24px     | (sin word-spacing)
+   ≤992px     | 36px      | 40px        | (sin word-spacing)
+   ≤768px     | 32px      | 36px        | (sin word-spacing)
+   ≤576px     | 28px      | 32px        | (sin word-spacing)
+   ≤480px     | 24px      | 28px        | (sin word-spacing)
+   
+   NOTA IMPORTANTE:
+   Los valores de line-height y word-spacing están
+   sincronizados con hero-heading.css para mantener
+   consistencia visual en todos los títulos.
+   
+   Si modificas valores en hero-heading.css,
+   deberás actualizarlos aquí también.
+   ============================================ */
