@@ -54,7 +54,6 @@
   font-style: italic;
   font-weight: 400;
   line-height: 70px; /* Sincronizado con hero-heading */
-  color: #312920;
 }
 
 .services-footer-bold {
@@ -62,7 +61,6 @@
   font-weight: 700;
   font-style: normal;
   line-height: 70px; /* Sincronizado con hero-heading */
-  color: #312920;
 }
 
 /* Process Title - "El proceso, paso a paso" */
@@ -152,76 +150,16 @@
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
 
-/* Tablet Grande (≤1400px) */
-@media (max-width: 1400px) {
-  .services-title,
-  .services-footer-title,
-  .process-title {
-    font-size: 52px;
-    line-height: 60px; /* Sincronizado con hero-heading */
-    word-spacing: 4px; /* Sincronizado con hero-heading */
-  }
-  
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 60px; /* Sincronizado con hero-heading */
-  }
-
-  .faqs-title {
-    font-size: 52px;
-    line-height: 60px; /* Sincronizado con hero-heading */
-    word-spacing: 4px; /* Sincronizado con hero-heading */
-  }
-  
-  .faqs-title-regular,
-  .faqs-title-italic {
-    line-height: 60px; /* Sincronizado con hero-heading */
-  }
-}
-
-/* Tablet (≤1200px) */
-@media (max-width: 1200px) {
-  .services-title,
-  .services-footer-title,
-  .process-title {
-    line-height: 60px; /* Sincronizado con hero-heading */
-    word-spacing: 2px; /* Sincronizado con hero-heading */
-  }
-  
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 60px; /* Sincronizado con hero-heading */
-  }
-
-  .faqs-title {
-    line-height: 60px; /* Sincronizado con hero-heading */
-    word-spacing: 2px; /* Sincronizado con hero-heading */
-  }
-  
-  .faqs-title-regular,
-  .faqs-title-italic {
-    line-height: 60px; /* Sincronizado con hero-heading */
-  }
-}
-
-/* Tablet Pequeña (≤992px) */
-@media (max-width: 992px) {
+/* TABLET (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
   .services-title,
   .services-footer-title,
   .process-title,
   .faqs-title {
-    font-size: 40px;
-    line-height: 48px; /* Sincronizado con hero-heading */
-    letter-spacing: -2px;
-    word-spacing: 2px; /* Sincronizado con hero-heading */
+    font-size: 52px;
+    line-height: 56px;
+    word-spacing: 2px;
+    letter-spacing: -3px;
   }
 
   .services-title-bold,
@@ -229,75 +167,29 @@
   .services-footer-italic,
   .services-footer-bold,
   .process-title-regular,
-  .process-title-italic {
-    line-height: 48px; /* Sincronizado con hero-heading */
-  }
-
-  .faqs-title {
-    font-size: 40px;
-    line-height: 48px; /* Sincronizado con hero-heading */
-    word-spacing: 2px; /* Sincronizado con hero-heading */
-  }
-  
+  .process-title-italic,
   .faqs-title-regular,
   .faqs-title-italic {
-    line-height: 48px; /* Sincronizado con hero-heading */
+    line-height: 56px;
   }
 
   .offer-title {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 44px;
+    line-height: 48px;
     padding: 0 0 12px;
   }
 }
 
-/* Mobile Grande (≤768px) */
+/* MOBILE (hasta 768px) */
 @media (max-width: 768px) {
   .services-title,
   .services-footer-title,
   .process-title,
   .faqs-title {
-    font-size: 34px;
-    line-height: 40px; /* Sincronizado con hero-heading */
-    word-spacing: -2px; /* Sincronizado con hero-heading */
-  }
-
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 40px; /* Sincronizado con hero-heading */
-  }
-
-  .faqs-title {
-    font-size: 34px;
-    line-height: 40px; /* Sincronizado con hero-heading */
-    word-spacing: -2px; /* Sincronizado con hero-heading */
-  }
-  
-  .faqs-title-regular,
-  .faqs-title-italic {
-    line-height: 40px; /* Sincronizado con hero-heading */
-  }
-
-  .offer-title {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 36px;
-    padding: 0 0 10px;
-  }
-}
-
-/* Mobile (≤576px) */
-@media (max-width: 576px) {
-  .services-title,
-  .services-footer-title,
-  .process-title,
-  .faqs-title {
-    font-size: 28px;
-    line-height: 36px; /* Sincronizado con hero-heading */
-    word-spacing: -2px; /* Sincronizado con hero-heading */
+    word-spacing: -2px;
+    letter-spacing: -2px;
   }
 
   .services-title-bold,
@@ -305,91 +197,16 @@
   .services-footer-italic,
   .services-footer-bold,
   .process-title-regular,
-  .process-title-italic {
-    line-height: 36px; /* Sincronizado con hero-heading */
-  }
-
-  .faqs-title {
-    font-size: 28px;
-    line-height: 36px; /* Sincronizado con hero-heading */
-    word-spacing: -2px; /* Sincronizado con hero-heading */
-  }
-  
+  .process-title-italic,
   .faqs-title-regular,
   .faqs-title-italic {
-    line-height: 36px; /* Sincronizado con hero-heading */
+    line-height: 36px;
   }
 
   .offer-title {
     font-size: 28px;
     line-height: 32px;
-  }
-}
-
-/* Mobile Pequeño (≤480px) */
-@media (max-width: 480px) {
-  .services-title,
-  .services-footer-title,
-  .process-title,
-  .faqs-title {
-    font-size: 24px;
-    line-height: 30px; /* Sincronizado con hero-heading */
-    word-spacing: -2.24px; /* Sincronizado con hero-heading */
-  }
-
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 30px; /* Sincronizado con hero-heading */
-  }
-
-  .faqs-title {
-    font-size: 24px;
-    line-height: 30px; /* Sincronizado con hero-heading */
-    word-spacing: -2.24px; /* Sincronizado con hero-heading */
-  }
-  
-  .faqs-title-regular,
-  .faqs-title-italic {
-    line-height: 30px; /* Sincronizado con hero-heading */
-  }
-
-  .offer-title {
-    font-size: 24px;
-    line-height: 28px;
-  }
-}
-
-/* Mobile Muy Pequeño (≤380px) */
-@media (max-width: 380px) {
-  .services-title,
-  .services-footer-title,
-  .process-title,
-  .faqs-title {
-    line-height: 19.2px; /* Sincronizado con hero-heading */
-    word-spacing: -1.92px; /* Sincronizado con hero-heading */
-  }
-  
-  .services-title-bold,
-  .services-title-italic,
-  .services-footer-italic,
-  .services-footer-bold,
-  .process-title-regular,
-  .process-title-italic {
-    line-height: 19.2px; /* Sincronizado con hero-heading */
-  }
-  
-  .faqs-title {
-    line-height: 19.2px; /* Sincronizado con hero-heading */
-    word-spacing: -1.92px; /* Sincronizado con hero-heading */
-  }
-  
-  .faqs-title-regular,
-  .faqs-title-italic {
-    line-height: 19.2px; /* Sincronizado con hero-heading */
+    padding: 0 0 10px;
   }
 }
 
@@ -402,28 +219,13 @@
    Services/Process/FAQs Titles:
    ---------------------------------------
    Breakpoint | Font-size | line-height | word-spacing
-   Desktop    | 64px      | 70px        | 6px
-   ≤1400px    | 52px      | 60px        | 4px
-   ≤1200px    | 52px      | 60px        | 2px
-   ≤992px     | 40px      | 48px        | 2px
-   ≤768px     | 34px      | 40px        | -2px
-   ≤576px     | 28px      | 36px        | -2px
-   ≤480px     | 24px      | 30px        | -2.24px
-   ≤380px     | 24px      | 19.2px      | -1.92px
+   Desktop    | 64px      | 70px        | 6px          (1025px+)
+   Tablet     | 52px      | 56px        | 2px          (769px-1024px)
+   Mobile     | 28px      | 36px        | -2px         (hasta 768px)
    
    Offer Title:
    ---------------------------------------
-   Desktop    | 52px      | 58.24px     | (sin word-spacing)
-   ≤992px     | 36px      | 40px        | (sin word-spacing)
-   ≤768px     | 32px      | 36px        | (sin word-spacing)
-   ≤576px     | 28px      | 32px        | (sin word-spacing)
-   ≤480px     | 24px      | 28px        | (sin word-spacing)
-   
-   NOTA IMPORTANTE:
-   Los valores de line-height y word-spacing están
-   sincronizados con hero-heading.css para mantener
-   consistencia visual en todos los títulos.
-   
-   Si modificas valores en hero-heading.css,
-   deberás actualizarlos aquí también.
+   Desktop    | 52px      | 58.24px     | (sin word-spacing) (1025px+)
+   Tablet     | 44px      | 48px        | (sin word-spacing) (769px-1024px)
+   Mobile     | 28px      | 32px        | (sin word-spacing) (hasta 768px)
    ============================================ */

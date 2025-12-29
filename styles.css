@@ -220,21 +220,6 @@ body {
   color: #fff;
 }
 
-@media (max-width: 576px) {
-  .btn-primary,
-  .btn-contact-mobile {
-    font-size: 15px;
-    padding: 12px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .btn-primary,
-  .btn-contact-mobile {
-    font-size: 14px;
-    padding: 10px 18px;
-  }
-}
 .navbar {
   position: fixed;
   top: 0;
@@ -267,26 +252,6 @@ body {
   position: relative;
 }
 
-@media (max-width: 768px) {
-  .navbar-container {
-    padding: 12px 16px;
-    border-radius: 80px;
-  }
-}
-
-@media (max-width: 576px) {
-  .navbar-container {
-    padding: 10px 12px;
-    border-radius: 70px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-container {
-    padding: 8px 10px;
-    border-radius: 60px;
-  }
-}
 
 .navbar-logo {
   color: #312920;
@@ -307,7 +272,7 @@ body {
   justify-content: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .navbar-menu-desktop {
     display: flex;
   }
@@ -371,7 +336,7 @@ body {
   cursor: pointer;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .mobile-menu-btn {
     display: none;
   }
@@ -402,7 +367,7 @@ body {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .btn-contact-desktop {
     display: flex;
     align-items: center;
@@ -458,18 +423,6 @@ body {
   gap: 4px;
 }
 
-@media (max-width: 576px) {
-  .mobile-menu-content {
-    padding: 20px;
-    gap: 2px;
-  }
-}
-
-@media (max-width: 480px) {
-  .mobile-menu-content {
-    padding: 16px;
-  }
-}
 
 .mobile-link {
   padding: 12px 16px;
@@ -490,7 +443,7 @@ body {
 .hero-section {
   min-height: 100vh;
   max-height: 1064px;
-  padding: 24px;
+  padding: 24px 24px 24px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -508,7 +461,7 @@ body {
 }
 
 .hero-left {
-  background-color: #d5cabe;
+  background: linear-gradient(180deg, #DFD6CE 0%, #EFEBE6 100%);
   border-radius: 16px;
   display: flex;
   align-items: flex-end;
@@ -524,12 +477,22 @@ body {
 }
 
 .hero-content {
-  max-width: 696px;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
   align-items: flex-start;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+.hero-svg {
+  max-width: 463px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: fadeInUp 1s ease-out 0.8s forwards;
+  opacity: 0;
 }
 
 /* Los estilos de .hero-heading están en hero-heading.css */
@@ -590,17 +553,6 @@ body {
   transition: transform 0.5s ease;
 }
 
-@media (max-width: 768px) {
-  .hero-image {
-    object-position: center center;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-image {
-    object-position: center 20%;
-  }
-}
 
 /* Services Section */
 .services-section {
@@ -622,6 +574,12 @@ body {
   gap: 8px;
   max-width: 636px;
   align-items: flex-start;
+}
+
+.services-title-svg {
+  width: 100%;
+  height: auto;
+  max-width: 250px;
 }
 
 .section-tag {
@@ -696,17 +654,6 @@ body {
   transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .service-image {
-    border-radius: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .service-image {
-    border-radius: 10px;
-  }
-}
 
 .service-info {
   display: flex;
@@ -715,13 +662,12 @@ body {
 }
 
 .service-title {
-  font-family: 'Libre Caslon Text', serif;
+  font-family: 'Anton', sans-serif;
   font-size: 24px;
-  font-weight: 700; /* Bold */
-  font-style: italic; /* Italic */
+  font-weight: 400;
+  font-style: normal;
   line-height: 24px;
-  letter-spacing: -0.8px;
-  color: #312920;
+  color: #51483F;
   margin: 0;
 }
 
@@ -740,6 +686,12 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 80px;
+}
+
+.services-footer-title-svg {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
 }
 
 /* Estilos de services-footer-title están en h2.css */
@@ -835,12 +787,26 @@ body {
   margin-bottom: 80px;
 }
 
+.process-title-svg {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  padding-bottom: 40px;
+}
+
+.process-title-svg {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  padding-bottom: 40px;
+}
+
 /* Los estilos de .process-title están en h2.css */
 
 .process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 40px;
   margin-bottom: 40px;
   margin: auto;
   max-width: 1200px;
@@ -865,19 +831,21 @@ body {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-family: 'Lora', serif;
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 19px;
+  font-family: 'WindSong', cursive;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  padding-left: 2px;
+  padding-top: 2px;
 }
 
 .process-step-title {
-  font-family: 'Libre Caslon Text', serif;
+  font-family: 'Anton', sans-serif;
   font-size: 24px;
-  font-weight: 700; /* Bold */
-  font-style: italic; /* Italic */
+  font-weight: 400;
+  font-style: normal;
   line-height: 24px;
-  letter-spacing: -0.8px;
   color: #fff;
   margin: 0;
 }
@@ -932,6 +900,12 @@ body {
   margin-bottom: 80px;
 }
 
+.faqs-title-svg {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
+
 /* Los estilos de .faqs-title están en h2.css */
 
 .faqs-list {
@@ -960,9 +934,10 @@ body {
 }
 
 .faq-question {
-  font-family: 'Lora', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600; /* Semibold */
+  font-style: italic;
   line-height: 34.08px;
   letter-spacing: -1.704px;
   color: #312920;
@@ -1065,17 +1040,6 @@ body {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .offer-video {
-    object-position: center center;
-  }
-}
-
-@media (max-width: 480px) {
-  .offer-video {
-    object-position: center 40%;
-  }
-}
 
 .offer-banner {
   position: relative;
@@ -1125,6 +1089,13 @@ body {
 }
 
 /* Los estilos de .offer-title están en h2.css */
+
+.offer-title-svg {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  padding: 0 0 16px;
+}
 
 .offer-subtitle {
   font-family: 'Inter Display', sans-serif;
@@ -1239,34 +1210,21 @@ body {
   margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 1400px) {
+/* ============================================
+   RESPONSIVE - 3 BREAKPOINTS
+   Mobile: hasta 768px
+   Tablet: 769px - 1024px
+   Desktop: 1025px+ (estilos base)
+   ============================================ */
+
+/* TABLET (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
   .navbar-logo {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hero-section {
-    max-height: none; /* Permite que el hero crezca según el contenido */
-  }
-
-  .hero-container {
-    grid-template-columns: 1fr;
-    height: auto;
-    gap: 16px;
-    max-height: none; /* Asegura que no haya límite de altura */
+    font-size: 17px;
   }
 
   .hero-left {
-    min-height: 500px;
-    min-width: auto;
     padding: 32px;
-  }
-
-  .hero-right {
-    min-height: 400px;
-    min-width: auto;
   }
 
   .process-container {
@@ -1298,243 +1256,22 @@ body {
   .faqs-section {
     padding: 120px 0 100px;
   }
-}
-
-@media (max-width: 992px) {
-  .hero-left {
-    padding: 28px;
-  }
-
-  .hero-content {
-    gap: 32px;
-  }
-
-  .navbar-logo {
-    font-size: 17px;
-  }
 
   .offer-section {
     min-height: 800px;
   }
 }
 
+/* MOBILE (hasta 768px) */
 @media (max-width: 768px) {
+  /* Navbar */
   .navbar {
     padding: 16px;
   }
 
   .navbar-container {
     padding: 12px 16px;
-  }
-
-  .navbar-logo {
-    font-size: 16px;
-    line-height: 32px;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
-
-  .process-container {
-    padding: 100px 24px 50px;
-  }
-
-  .hero-section {
-    padding: 16px;
-    min-height: auto;
-  }
-
-  .hero-container {
-    max-height: none;
-  }
-
-  .hero-left {
-    padding: 28px;
-    min-height: 450px;
-  }
-
-  .hero-right {
-    min-height: 350px;
-  }
-
-  .hero-content {
-    gap: 28px;
-  }
-
-  .hero-description {
-    font-size: 15px;
-    line-height: 22px;
-  }
-
-  .btn-hero {
-    padding: 18px 32px;
-    font-size: 15px;
-  }
-
-  .services-section {
-    padding: 100px 0 50px;
-  }
-
-  .services-header {
-    margin-bottom: 60px;
-  }
-
-  .services-intro-text {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .services-grid,
-  .process-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .services-grid {
-    margin-bottom: 60px;
-  }
-
-  .services-footer {
-    gap: 60px;
-  }
-
-  .service-title {
-    font-size: 22px;
-    line-height: 22px;
-  }
-
-  .service-description {
-    font-size: 16px;
-  }
-
-  .process-step {
-    height: auto;
-    gap: 20px;
-  }
-
-  .process-step-title {
-    font-size: 22px;
-    line-height: 22px;
-  }
-
-  .process-step-description {
-    font-size: 16px;
-    max-width: 100%;
-  }
-
-  .faq-question {
-    font-size: 20px;
-    line-height: 28px;
-    letter-spacing: -0.8px;
-  }
-
-  .faq-answer p {
-    font-size: 15px;
-    line-height: 22px;
-  }
-
-  .faq-toggle {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-  }
-
-  .faq-item {
-    padding: 24px 0;
-  }
-
-  .faqs-section {
-    padding: 100px 0 80px;
-  }
-
-  .faqs-header,
-  .faqs-list {
-    margin-bottom: 60px;
-  }
-
-  .offer-section {
-    padding: 16px;
-    min-height: 600px;
-  }
-
-  .offer-background {
-    inset: 16px;
-  }
-
-  .offer-banner {
-    width: calc(100% - 32px);
-    max-width: 500px;
-    padding: 32px 24px;
-    border-radius: 32px;
-    box-shadow: 
-      0 0 0 12px rgba(255, 255, 255, 0.3),
-      0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .offer-banner:hover {
-    box-shadow: 
-      0 0 0 12px rgba(255, 255, 255, 0.3),
-      0 10px 28px rgba(0, 0, 0, 0.25);
-  }
-
-  .offer-subtitle {
-    font-size: 15px;
-    margin: 0 0 12px;
-  }
-
-  .btn-offer {
-    padding: 15px 32px;
-    font-size: 15px;
-  }
-
-  .footer {
-    padding: 40px 0 24px;
-  }
-
-  .footer-content {
-    margin-bottom: 24px;
-  }
-
-  .footer-title {
-    font-size: 20px;
-    line-height: 32px;
-  }
-
-  .footer-subtitle {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .social-link {
-    width: 56px;
-    height: 56px;
-  }
-
-  .social-icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .footer-divider {
-    margin-bottom: 24px;
-  }
-
-  .btn-services,
-  .btn-process,
-  .btn-faqs {
-    padding: 18px 32px;
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 576px) {
-  .navbar {
-    padding: 12px;
-  }
-
-  .navbar-container {
-    padding: 10px 12px;
+    border-radius: 80px;
   }
 
   .navbar-logo {
@@ -1546,17 +1283,70 @@ body {
     padding: 6px;
   }
 
+  /* Mobile Menu */
+  .mobile-menu-content {
+    padding: 20px;
+    gap: 2px;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Hero - Cambia a 1 columna solo en mobile */
+  .hero-section {
+    padding: 16px;
+    min-height: auto;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 16px;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+  }
+
   .hero-left {
     padding: 24px;
     min-height: 400px;
+    min-width: auto;
+    order: 1;
+    overflow: visible;
+    margin-top: 0;
   }
 
   .hero-right {
     min-height: 300px;
+    min-width: auto;
+    order: 2;
+    overflow: hidden;
+    margin-bottom: 0;
+    border-radius: 16px;
+  }
+
+  .hero-container {
+    overflow: visible;
+    margin-bottom: 0;
+  }
+
+  .hero-image {
+    object-position: center center;
   }
 
   .hero-content {
     gap: 24px;
+  }
+
+  .hero-svg {
+    max-width: 463px;
+    width: 100%;
+    height: auto;
   }
 
   .hero-description {
@@ -1569,12 +1359,23 @@ body {
     font-size: 14px;
   }
 
+  /* Services */
   .services-section {
-    padding: 80px 0 40px;
+    padding: 16px 0 40px;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .services-header {
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
     margin-bottom: 50px;
+  }
+
+  .services-intro {
+    max-width: 100%;
   }
 
   .services-intro-text {
@@ -1583,6 +1384,7 @@ body {
   }
 
   .services-grid {
+    grid-template-columns: 1fr;
     gap: 40px;
     margin-bottom: 50px;
   }
@@ -1600,6 +1402,11 @@ body {
     font-size: 16px;
   }
 
+  .service-info {
+    gap: 12px;
+  }
+
+  /* Process */
   .process-container {
     padding: 80px 20px 40px;
   }
@@ -1609,18 +1416,24 @@ body {
   }
 
   .process-grid {
-    gap: 28px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     margin-bottom: 32px;
   }
 
   .process-step {
+    height: auto;
     gap: 18px;
   }
 
   .process-number {
     width: 60px;
     height: 60px;
-    font-size: 17px;
+    font-size: 28px;
+    line-height: 1;
+    text-align: center;
+    padding-left: 2px;
+    padding-top: 2px;
   }
 
   .process-step-title {
@@ -1630,6 +1443,28 @@ body {
 
   .process-step-description {
     font-size: 16px;
+    max-width: 100%;
+  }
+
+  /* FAQs */
+  .faqs-section {
+    padding: 80px 0 60px;
+  }
+
+  .faqs-header {
+    margin-bottom: 50px;
+  }
+
+  .faqs-list {
+    margin-bottom: 50px;
+  }
+
+  .faq-item {
+    padding: 20px 0;
+  }
+
+  .faq-header {
+    gap: 16px;
   }
 
   .faq-question {
@@ -1654,40 +1489,30 @@ body {
     height: 18px;
   }
 
-  .faq-item {
-    padding: 20px 0;
-  }
-
-  .faq-header {
-    gap: 16px;
-  }
-
-  .faqs-section {
-    padding: 80px 0 60px;
-  }
-
-  .faqs-header,
-  .faqs-list {
-    margin-bottom: 50px;
-  }
-
+  /* Offer */
   .offer-section {
+    padding: 16px;
     min-height: 500px;
   }
 
+  .offer-background {
+    inset: 16px;
+  }
+
   .offer-banner {
-    width: calc(100% - 24px);
+    width: calc(100% - 32px);
+    max-width: 500px;
     padding: 28px 20px;
     border-radius: 28px;
     box-shadow: 
-      0 0 0 10px rgba(255, 255, 255, 0.3),
-      0 4px 16px rgba(0, 0, 0, 0.15);
+      0 0 0 12px rgba(255, 255, 255, 0.3),
+      0 6px 20px rgba(0, 0, 0, 0.15);
   }
 
   .offer-banner:hover {
     box-shadow: 
-      0 0 0 10px rgba(255, 255, 255, 0.3),
-      0 8px 24px rgba(0, 0, 0, 0.25);
+      0 0 0 12px rgba(255, 255, 255, 0.3),
+      0 10px 28px rgba(0, 0, 0, 0.25);
   }
 
   .offer-subtitle {
@@ -1701,6 +1526,7 @@ body {
     font-size: 14px;
   }
 
+  /* Footer */
   .footer {
     padding: 32px 0 20px;
   }
@@ -1741,6 +1567,13 @@ body {
     line-height: 18px;
   }
 
+  /* Buttons */
+  .btn-primary,
+  .btn-contact-mobile {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+
   .btn-services,
   .btn-process,
   .btn-faqs {
@@ -1752,183 +1585,15 @@ body {
     font-size: 11px;
     padding: 10px 14px;
   }
-}
 
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 12px;
+  /* Service Images */
+  .service-image {
+    border-radius: 12px;
   }
 
-  .process-section,
-  .offer-section {
-    padding: 12px;
-  }
-
-  .offer-background {
-    inset: 12px;
-  }
-
-  .process-container {
-    padding: 70px 16px 32px;
-  }
-
-  .hero-left {
-    padding: 20px;
-    min-height: 380px;
-  }
-
-  .hero-right {
-    min-height: 280px;
-  }
-
-  .hero-content {
-    gap: 20px;
-  }
-
-  .services-section {
-    padding: 60px 0 32px;
-  }
-
-  .services-header {
-    margin-bottom: 40px;
-  }
-
-  .services-grid {
-    gap: 40px;
-    margin-bottom: 40px;
-  }
-
-  .services-footer {
-    gap: 40px;
-  }
-
-  .service-info {
-    gap: 12px;
-  }
-
-  .process-header {
-    margin-bottom: 50px;
-  }
-
-  .process-grid {
-    gap: 24px;
-    margin-bottom: 28px;
-  }
-
-  .process-step {
-    gap: 16px;
-  }
-
-  .process-number {
-    width: 56px;
-    height: 56px;
-    font-size: 16px;
-  }
-
-  .faqs-section {
-    padding: 60px 0 50px;
-  }
-
-  .faqs-header {
-    margin-bottom: 40px;
-  }
-
-  .faqs-list {
-    margin-bottom: 40px;
-  }
-
-  .faq-item {
-    padding: 18px 0;
-  }
-
-  .offer-section {
-    min-height: 450px;
-  }
-
-  .offer-banner {
-    width: calc(100% - 16px);
-    padding: 24px 16px;
-    border-radius: 24px;
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-}
-
-@media (max-width: 380px) {
-  .navbar-logo {
-    font-size: 14px;
-    line-height: 24px;
-  }
-
-  .hero-left {
-    padding: 16px;
-    min-height: 350px;
-  }
-
-  .hero-right {
-    min-height: 250px;
-  }
-
-  .hero-content {
-    gap: 16px;
-  }
-
-  .hero-description {
-    font-size: 13px;
-    line-height: 18px;
-  }
-
-  .btn-hero {
-    padding: 14px 24px;
-    font-size: 13px;
-  }
-
-  .process-container {
-    padding: 60px 12px 28px;
-  }
-
-  .offer-subtitle {
-    font-size: 13px;
-    line-height: 18px;
-  }
-
-  .btn-offer,
-  .btn-services,
-  .btn-process,
-  .btn-faqs {
-    padding: 12px 20px;
-    font-size: 13px;
-  }
-
-  .faq-question {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .faq-toggle {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-  }
-
-  .faq-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  .social-link {
-    width: 48px;
-    height: 48px;
-  }
-
-  .footer-social {
-    gap: 12px;
-  }
-
-  .container {
-    padding: 0 12px;
+  /* Offer Video */
+  .offer-video {
+    object-position: center center;
   }
 }
 
