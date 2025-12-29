@@ -692,6 +692,8 @@ body {
   width: 100%;
   height: auto;
   max-width: 400px;
+  animation: fadeInUp 1s ease-out 0.8s forwards;
+  opacity: 0;
 }
 
 /* Estilos de services-footer-title están en h2.css */
