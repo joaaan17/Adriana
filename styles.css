@@ -555,6 +555,7 @@ body {
   object-position: top center;
   display: block;
   transition: transform 0.5s ease;
+  border-radius: 16px;
 }
 
 
