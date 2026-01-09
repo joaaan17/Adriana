@@ -252,3 +252,61 @@ if (offerVideo) {
     console.log('Video de oferta cargado correctamente');
   });
 }
+
+// Service Carousels - Event delegation
+document.addEventListener('click', (e) => {
+  // Verificar si el clic fue en un punto del carrusel
+  if (e.target.classList.contains('carousel-dot')) {
+    const dot = e.target;
+    const carousel = dot.closest('.service-carousel');
+    
+    if (carousel) {
+      const images = carousel.querySelectorAll('.carousel-image');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      const index = parseInt(dot.getAttribute('data-index'), 10);
+      
+      if (!isNaN(index) && images[index]) {
+        // Remover active de todas las imágenes y puntos
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        // Activar la imagen y punto seleccionados
+        images[index].classList.add('active');
+        dot.classList.add('active');
+      }
+    }
+  }
+  
+  // Verificar si el clic fue en la imagen del carrusel
+  if (e.target.classList.contains('carousel-image') || e.target.closest('.carousel-images')) {
+    const carousel = e.target.closest('.service-carousel');
+    
+    if (carousel && !e.target.classList.contains('carousel-dot')) {
+      const images = carousel.querySelectorAll('.carousel-image');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      
+      // Encontrar la imagen activa actual
+      let currentIndex = -1;
+      images.forEach((img, index) => {
+        if (img.classList.contains('active')) {
+          currentIndex = index;
+        }
+      });
+      
+      // Calcular el siguiente índice (circular)
+      if (currentIndex >= 0 && images.length > 0) {
+        const nextIndex = (currentIndex + 1) % images.length;
+        
+        // Remover active de todas las imágenes y puntos
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        // Activar la siguiente imagen y punto
+        images[nextIndex].classList.add('active');
+        if (dots[nextIndex]) {
+          dots[nextIndex].classList.add('active');
+        }
+      }
+    }
+  }
+});
