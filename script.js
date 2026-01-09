@@ -219,7 +219,7 @@ document.querySelectorAll('.service-item, .process-step, .faq-item, .services-ti
 
 // Añadir animación de aparición a las service cards con delay
 document.querySelectorAll('.service-item').forEach((item, index) => {
-  item.style.animationDelay = `${index * 0.1}s`;
+  item.style.animationDelay = `${index * 0.15}s`;
 });
 
 // Añadir animación de aparición a los process steps con delay
