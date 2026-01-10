@@ -1101,7 +1101,6 @@ body {
 .offer-section {
   position: relative;
   padding: 0 24px;
-  min-height: 1064px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1345,7 +1344,6 @@ body {
   }
 
   .offer-section {
-    min-height: 800px;
     flex-direction: column;
     gap: 24px;
   }
@@ -1606,14 +1604,13 @@ body {
 
   /* Offer */
   .offer-section {
-    padding: 0 16px;
-    min-height: 500px;
+    padding: 0 24px;
     flex-direction: column;
     gap: 0;
   }
 
   .footer-videos-container {
-    gap: 16px;
+    gap: 4px;
     flex-direction: row;
     width: 100%;
   }
