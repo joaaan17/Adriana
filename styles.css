@@ -209,7 +209,7 @@ body {
   padding: 12px 24px;
   color: #312920;
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
   letter-spacing: -0.32px;
@@ -358,7 +358,7 @@ body {
   padding: 9px 17px;
   color: #312920;
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.2px;
@@ -520,7 +520,7 @@ body {
   padding: 22.5px 41px;
   color: #51483F;
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
   letter-spacing: -0.32px;
@@ -746,7 +746,7 @@ body {
 
 .service-description {
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 140%;
   letter-spacing: -0.16px;
@@ -777,7 +777,7 @@ body {
   padding: 22.5px 41px;
   color: #312920;
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
   letter-spacing: -0.32px;
@@ -871,7 +871,6 @@ body {
   font-weight: 500;
   line-height: 73.84px; /* 142% */
   margin: 0;
-  padding-bottom: 40px;
 }
 
 /* Los estilos de .process-title están en h2.css */
@@ -927,7 +926,7 @@ body {
 
 .process-step-description {
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 140%;
   letter-spacing: -0.16px;
@@ -947,7 +946,7 @@ body {
   padding: 22.5px 41px;
   color: #fff;
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
   letter-spacing: -0.32px;
@@ -1032,7 +1031,7 @@ body {
 
 .faq-answer p {
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.16px;
@@ -1082,7 +1081,7 @@ body {
   padding: 22.5px 41px;
   color: #312920;
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
   letter-spacing: -0.32px;
@@ -1200,7 +1199,7 @@ body {
   padding: 17px 41px;
   color: #fff;
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
   letter-spacing: -0.32px;
