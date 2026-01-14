@@ -1550,6 +1550,7 @@ body {
   .about-container {
     padding: 0;
     align-items: center;
+    gap: 16px;
   }
 
   .about-tag {
@@ -1564,6 +1565,7 @@ body {
 
   .about-header {
     align-items: center;
+    gap: 16px;
   }
 
   .about-title {
@@ -1673,6 +1675,8 @@ body {
   .btn-hero {
     padding: 16px 28px;
     font-size: 14px;
+    margin: 0 auto;
+    display: flex;
   }
 
   /* Services */
@@ -1697,6 +1701,7 @@ body {
 
   .services-title-wrapper {
     align-items: center;
+    gap: 16px;
   }
 
   .services-tag {
@@ -1756,6 +1761,7 @@ body {
   .process-header {
     margin-bottom: 60px;
     align-items: center;
+    gap: 16px;
   }
 
   .process-tag {
@@ -1812,6 +1818,7 @@ body {
   .faqs-header {
     margin-bottom: 50px;
     align-items: center;
+    gap: 16px;
   }
 
   .faqs-tag {
@@ -1917,18 +1924,29 @@ body {
   .footer-content {
     flex-direction: column;
     gap: 24px;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 20px;
+  }
+
+  .footer-info {
+    align-items: center;
+    text-align: center;
   }
 
   .footer-title {
     font-size: 18px;
     line-height: 28px;
+    text-align: center;
   }
 
   .footer-subtitle {
     font-size: 13px;
     line-height: 18px;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
   }
 
   .social-link {
