@@ -510,14 +510,14 @@ body {
 
 .hero-description {
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 20px;
   letter-spacing: -0.16px;
   color: #312920;
   margin: 0 0 48px 0;
-  max-width: 463px;
-  animation: fadeInUpLight 1s ease-out 0.8s forwards;
+  width: 70%;
+  animation: fadeInUpLight 1s ease-out 1.4s forwards;
   opacity: 0;
 }
 
@@ -537,7 +537,7 @@ body {
   justify-content: center;
   width: fit-content;
   transition: all 0.3s ease;
-  animation: fadeInUp 1s ease-out 1s forwards;
+  animation: fadeInUp 1s ease-out 2.0s forwards;
   opacity: 0;
 }
 
@@ -733,7 +733,7 @@ body {
 /* Estilos de services-title están en h2.css */
 
 .services-intro {
-  max-width: 600px;
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -741,12 +741,13 @@ body {
 
 .services-intro-text {
   font-family: 'Inter Display', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 20px;
   letter-spacing: -0.16px;
   color: rgba(49, 41, 32, 0.7);
   margin: 0;
+  opacity: 0;
 }
 
 .services-grid {
@@ -1255,7 +1256,7 @@ body {
 /* Offer Section */
 .offer-section {
   position: relative;
-  padding: 0 24px 80px 24px;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1575,7 +1576,11 @@ body {
   }
 
   .about-content {
-    text-align: center;
+    text-align: left;
+  }
+
+  .about-tag {
+    margin: 0 auto;
   }
 
   /* Navbar */
@@ -1669,13 +1674,15 @@ body {
     font-size: 14px;
     line-height: 20px;
     margin-bottom: 48px;
-    text-align: center;
+    text-align: left;
+    width: 100%;
+    color: #312920;
   }
 
   .btn-hero {
     padding: 16px 28px;
     font-size: 14px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
   }
 
@@ -1713,6 +1720,7 @@ body {
   }
 
   .services-intro {
+    width: 100%;
     max-width: 100%;
     text-align: center;
   }
@@ -1721,6 +1729,7 @@ body {
     font-size: 14px;
     line-height: 20px;
     text-align: center;
+    width: 100%;
   }
 
   .services-grid {
@@ -1866,7 +1875,7 @@ body {
 
   /* Offer */
   .offer-section {
-    padding: 80px 24px;
+    padding: 0 24px;
     flex-direction: column;
     gap: 0;
   }
