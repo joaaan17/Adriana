@@ -558,6 +558,90 @@ body {
   border-radius: 16px;
 }
 
+/* About Section */
+.about-section {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.about-frame {
+  display: flex;
+  width: 1872px;
+  max-width: 100%;
+  padding: 80px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #51483D 0%, #8B8176 100%);
+}
+
+.about-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 80px;
+  justify-content: center;
+  align-items: start;
+  padding: 40px;
+}
+
+.about-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-tag {
+  display: flex;
+  padding: 6px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: "Inter Display", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13.44px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.about-title {
+  color: #FFF;
+  text-align: center;
+  font-family: "Ravensara Sans", sans-serif;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 73.84px; /* 142% */
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.about-text {
+  color: #FFF;
+  font-family: "Inter Display", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.16px;
+  margin: 0;
+}
+
 
 /* Services Section */
 .services-section {
@@ -576,9 +660,28 @@ body {
 .services-title-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   max-width: 636px;
   align-items: flex-start;
+}
+
+.services-tag {
+  display: flex;
+  padding: 6px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(81, 72, 63, 0.10);
+  color: #312920;
+  font-family: "Inter Display", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13.44px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  width: fit-content;
 }
 
 .services-title-text {
@@ -858,8 +961,27 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-bottom: 80px;
+}
+
+.process-tag {
+  display: flex;
+  padding: 6px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  font-family: "Inter Display", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13.44px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  width: fit-content;
 }
 
 .process-title-text {
@@ -970,8 +1092,27 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-bottom: 80px;
+}
+
+.faqs-tag {
+  display: flex;
+  padding: 6px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(81, 72, 63, 0.10);
+  color: #312920;
+  font-family: "Inter Display", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13.44px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  width: fit-content;
 }
 
 .faqs-title-text {
@@ -1312,6 +1453,22 @@ body {
     padding: 32px;
   }
 
+  .about-frame {
+    flex-direction: column;
+    gap: 40px;
+    padding: 80px 24px;
+    border-radius: 16px;
+  }
+
+  .about-container {
+    padding: 40px;
+  }
+
+  .about-title {
+    font-size: 52px;
+    line-height: 73.84px;
+  }
+
   .process-container {
     padding: 140px 40px 70px;
   }
@@ -1357,6 +1514,27 @@ body {
 
 /* MOBILE (hasta 768px) */
 @media (max-width: 768px) {
+  /* About Section */
+  .about-section {
+    padding: 0 16px;
+  }
+
+  .about-frame {
+    flex-direction: column;
+    gap: 40px;
+    padding: 80px 24px;
+    border-radius: 16px;
+  }
+
+  .about-container {
+    padding: 0;
+  }
+
+  .about-title {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
   /* Navbar */
   .navbar {
     padding: 16px;

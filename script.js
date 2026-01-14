@@ -212,7 +212,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.service-item, .process-step, .faq-item, .services-title-wrapper, .process-header, .faqs-header, .offer-banner').forEach((element) => {
+document.querySelectorAll('.service-item, .process-step, .faq-item, .services-title-wrapper, .process-header, .faqs-header, .offer-banner, .about-header, .about-content').forEach((element) => {
   element.classList.add('animate-on-scroll');
   observer.observe(element);
 });
@@ -225,6 +225,11 @@ document.querySelectorAll('.service-item').forEach((item, index) => {
 // Añadir animación de aparición a los process steps con delay
 document.querySelectorAll('.process-step').forEach((item, index) => {
   item.style.animationDelay = `${index * 0.15}s`;
+});
+
+// Añadir animación de aparición al about content con delay
+document.querySelectorAll('.about-content').forEach((item) => {
+  item.style.animationDelay = `0.2s`;
 });
 
 // Offer video autoplay handler
