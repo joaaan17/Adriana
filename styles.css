@@ -633,7 +633,7 @@ body {
   font-family: "Ravensara Sans", sans-serif;
   font-size: 48px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 48px;
   text-transform: uppercase;
   margin: 0;
@@ -704,7 +704,7 @@ body {
   font-family: "Ravensara Sans", sans-serif;
   font-size: 48px;
   font-style: normal;
-  font-weight: 500; /* Medium */
+  font-weight: 400; /* Regular */
   line-height: 68.16px; /* 142% */
   text-transform: uppercase;
   margin: 0;
@@ -857,7 +857,7 @@ body {
   font-family: "Ravensara Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
-  font-weight: 500; /* Medium */
+  font-weight: 300; /* Light */
   line-height: 100%; /* 24px */
   text-transform: uppercase;
   margin: 0;
@@ -1006,7 +1006,7 @@ body {
   font-family: "Ravensara Sans", sans-serif;
   font-size: 48px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 68.16px; /* 142% */
   margin: 0;
 }
@@ -1056,7 +1056,7 @@ body {
   font-family: "Ravensara Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
-  font-weight: 500; /* Medium */
+  font-weight: 300; /* Light */
   line-height: 100%; /* 24px */
   text-transform: uppercase;
   margin: 0;
@@ -1137,7 +1137,7 @@ body {
   font-family: "Ravensara Sans", sans-serif;
   font-size: 48px;
   font-style: normal;
-  font-weight: 500; /* Medium */
+  font-weight: 400; /* Regular */
   line-height: 68.16px; /* 142% */
   text-transform: uppercase;
   margin: 0;
@@ -1390,9 +1390,9 @@ body {
 }
 
 .footer-title {
-  font-family: 'Inter Display', sans-serif;
+  font-family: "Ravensara Sans", sans-serif;
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 40px;
   color: #312920;
   margin: 0;
@@ -1401,7 +1401,7 @@ body {
 .footer-subtitle {
   font-family: 'Inter Display', sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 23.1px;
   color: #312920;
   margin: 0;
@@ -1487,7 +1487,7 @@ body {
 
   .about-title {
     font-size: 48px;
-    line-height: 68.16px;
+    line-height: 48px;
   }
 
   .process-container {
@@ -1537,14 +1537,14 @@ body {
 @media (max-width: 768px) {
   /* About Section */
   .about-section {
-    padding: 80px 16px;
+    padding: 0 16px;
     margin-top: 0;
   }
 
   .about-frame {
     flex-direction: column;
     gap: 40px;
-    padding: 80px 24px;
+    padding: 16px;
     border-radius: 16px;
   }
 
@@ -1615,7 +1615,7 @@ body {
 
   /* Hero - Cambia a 1 columna solo en mobile */
   .hero-section {
-    padding: 0 16px 80px 16px;
+    padding: 0 16px 16px 16px;
     min-height: auto;
     margin-bottom: 0;
     position: relative;

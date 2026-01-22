@@ -9,6 +9,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   
+  <!-- Preload Ravensara Sans fonts (most used) -->
+  <link rel="preload" href="fonts/RavensaraSans-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/RavensaraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +110,7 @@
               <h2 class="about-title">ADRIANA<br>TORTOSA</h2>
             </div>
             <div class="about-content">
-              <p class="about-text">Soy Adriana Tortosa, artista de la micropigmentación con una visión profundamente estética y creativa. Concibo cada tratamiento como un proceso artístico, donde se tienen en cuenta las proporciones faciales, la anatomía natural de la ceja y las características de tu piel, esto es fundamental.</p>
+              <p class="about-text">Soy Adriana Tortosa, artista de la micropigmentación con una visión profundamente estética y creativa. Concibo cada tratamiento como un proceso artístico, donde se tienen en cuenta las proporciones faciales, la anatomía natural de la ceja, labio y ojo y las características de tu piel; esto es fundamental.</p>
               <p class="about-text">Mi formación como maquilladora profesional me permite analizar cada rostro con precisión y crear diseños hiperrealistas y personalizados. Mi filosofía se basa en realzar la belleza existente, respetando siempre la esencia de cada persona y buscando resultados elegantes, sutiles y realistas.</p>
               <p class="about-text">Trabajo para un cliente exigente que valora la precisión, la naturalidad y la excelencia en cada detalle.</p>
             </div>
@@ -137,7 +141,7 @@
               <div class="service-carousel" data-carousel="0">
                 <div class="carousel-images">
                   <img src="philosophy-1.jpeg" alt="Cejas Hairstroke" class="carousel-image active">
-                  <img src="philosophy-1.2.jpeg" alt="Cejas Hairstroke" class="carousel-image">
+                  <img src="philosophy-1.2.PNG" alt="Cejas Hairstroke" class="carousel-image">
                 </div>
                 <div class="carousel-dots">
                   <button class="carousel-dot active" data-index="0" aria-label="Imagen 1"></button>
@@ -193,7 +197,16 @@
 
           <div class="service-item">
             <div class="service-image">
-              <img src="philosophy-4.jpg" alt="Eyeliner">
+              <div class="service-carousel" data-carousel="3">
+                <div class="carousel-images">
+                  <img src="philosophy-4.jpg" alt="Eyeliner" class="carousel-image active">
+                  <img src="philosophy-4.2.jpeg" alt="Eyeliner" class="carousel-image">
+                </div>
+                <div class="carousel-dots">
+                  <button class="carousel-dot active" data-index="0" aria-label="Imagen 1"></button>
+                  <button class="carousel-dot" data-index="1" aria-label="Imagen 2"></button>
+                </div>
+              </div>
             </div>
             <div class="service-info">
               <h3 class="service-title">Eyeliner</h3>

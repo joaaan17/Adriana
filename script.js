@@ -1,6 +1,9 @@
 // Font loading handler para evitar FOUT (Flash of Unstyled Text)
 if ('fonts' in document) {
+  // Precargar fuentes Ravensara Sans más usadas
   Promise.all([
+    document.fonts.load('300 16px "Ravensara Sans"'),
+    document.fonts.load('400 16px "Ravensara Sans"'),
     document.fonts.load('400 64px Lora'),
     document.fonts.load('italic 400 64px Lora'),
     document.fonts.load('600 64px Lora')
@@ -13,6 +16,8 @@ if ('fonts' in document) {
         heroHeading.classList.add('animate');
       }, 100);
     }
+    // Añadir clase al body cuando las fuentes estén cargadas
+    document.body.classList.add('fonts-loaded');
   }).catch(() => {
     // Fallback: mostrar el texto aunque las fuentes no se hayan cargado
     const heroHeading = document.querySelector('.hero-heading');
@@ -20,6 +25,7 @@ if ('fonts' in document) {
       heroHeading.classList.add('fonts-loaded');
       heroHeading.classList.add('animate');
     }
+    document.body.classList.add('fonts-loaded');
   });
 
   // Timeout de seguridad: mostrar el texto después de 1 segundo aunque las fuentes no se hayan cargado
@@ -28,6 +34,9 @@ if ('fonts' in document) {
     if (heroHeading && !heroHeading.classList.contains('fonts-loaded')) {
       heroHeading.classList.add('fonts-loaded');
       heroHeading.classList.add('animate');
+    }
+    if (!document.body.classList.contains('fonts-loaded')) {
+      document.body.classList.add('fonts-loaded');
     }
   }, 1000);
 } else {
@@ -38,6 +47,7 @@ if ('fonts' in document) {
       heroHeading.classList.add('fonts-loaded');
       heroHeading.classList.add('animate');
     }
+    document.body.classList.add('fonts-loaded');
   });
 }
 
