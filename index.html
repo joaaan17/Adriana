@@ -9,9 +9,12 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   
-  <!-- Preload Ravensara Sans fonts (most used) -->
+  <!-- Preload Ravensara Sans fonts (most used) - CRÍTICAS -->
   <link rel="preload" href="fonts/RavensaraSans-Light.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/RavensaraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Cargar fonts.css primero para definir las fuentes antes de usarlas -->
+  <link rel="stylesheet" href="fonts.css">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +22,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter+Display:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Anton&family=WindSong:wght@400&display=block" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- Script inline para cargar fuentes críticas ANTES de renderizar el contenido -->
+  <script>
+    // Ocultar el body hasta que las fuentes estén cargadas
+    document.documentElement.style.visibility = 'hidden';
+    
+    // Cargar fuentes críticas inmediatamente
+    if ('fonts' in document) {
+      Promise.all([
+        document.fonts.load('300 16px "Ravensara Sans"'),
+        document.fonts.load('400 16px "Ravensara Sans"'),
+        document.fonts.load('400 64px Lora'),
+        document.fonts.load('italic 400 64px Lora'),
+        document.fonts.load('600 64px Lora')
+      ]).then(() => {
+        // Fuentes cargadas - mostrar el contenido
+        document.documentElement.style.visibility = 'visible';
+        document.body.classList.add('fonts-loaded');
+      }).catch(() => {
+        // Fallback: mostrar después de 1 segundo aunque falle
+        setTimeout(() => {
+          document.documentElement.style.visibility = 'visible';
+          document.body.classList.add('fonts-loaded');
+        }, 1000);
+      });
+      
+      // Timeout de seguridad: mostrar después de 2 segundos máximo
+      setTimeout(() => {
+        if (document.documentElement.style.visibility === 'hidden') {
+          document.documentElement.style.visibility = 'visible';
+          document.body.classList.add('fonts-loaded');
+        }
+      }, 2000);
+    } else {
+      // Fallback para navegadores sin Font Loading API
+      window.addEventListener('load', () => {
+        document.documentElement.style.visibility = 'visible';
+        document.body.classList.add('fonts-loaded');
+      });
+    }
+  </script>
 </head>
 <body>
   
@@ -199,12 +243,14 @@
             <div class="service-image">
               <div class="service-carousel" data-carousel="3">
                 <div class="carousel-images">
-                  <img src="philosophy-4.jpg" alt="Eyeliner" class="carousel-image active">
-                  <img src="philosophy-4.2.jpeg" alt="Eyeliner" class="carousel-image">
+                  <img src="philosophy-4.jpeg" alt="Eyeliner" class="carousel-image active">
+                  <img src="philosophy-4.2.jpg" alt="Eyeliner" class="carousel-image">
+                  <img src="philosophy-4.3.jpeg" alt="Eyeliner" class="carousel-image">
                 </div>
                 <div class="carousel-dots">
                   <button class="carousel-dot active" data-index="0" aria-label="Imagen 1"></button>
                   <button class="carousel-dot" data-index="1" aria-label="Imagen 2"></button>
+                  <button class="carousel-dot" data-index="2" aria-label="Imagen 3"></button>
                 </div>
               </div>
             </div>

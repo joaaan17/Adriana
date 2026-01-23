@@ -1,13 +1,8 @@
-// Font loading handler para evitar FOUT (Flash of Unstyled Text)
-if ('fonts' in document) {
-  // Precargar fuentes Ravensara Sans más usadas
-  Promise.all([
-    document.fonts.load('300 16px "Ravensara Sans"'),
-    document.fonts.load('400 16px "Ravensara Sans"'),
-    document.fonts.load('400 64px Lora'),
-    document.fonts.load('italic 400 64px Lora'),
-    document.fonts.load('600 64px Lora')
-  ]).then(() => {
+// Font loading handler - las fuentes ya se cargan en el <head> con script inline
+// Este código solo maneja la animación del hero heading después de que las fuentes estén cargadas
+document.addEventListener('DOMContentLoaded', () => {
+  // Si las fuentes ya están cargadas (clase añadida por el script inline)
+  if (document.body.classList.contains('fonts-loaded')) {
     const heroHeading = document.querySelector('.hero-heading');
     if (heroHeading) {
       heroHeading.classList.add('fonts-loaded');
@@ -16,40 +11,33 @@ if ('fonts' in document) {
         heroHeading.classList.add('animate');
       }, 100);
     }
-    // Añadir clase al body cuando las fuentes estén cargadas
-    document.body.classList.add('fonts-loaded');
-  }).catch(() => {
-    // Fallback: mostrar el texto aunque las fuentes no se hayan cargado
-    const heroHeading = document.querySelector('.hero-heading');
-    if (heroHeading) {
-      heroHeading.classList.add('fonts-loaded');
-      heroHeading.classList.add('animate');
-    }
-    document.body.classList.add('fonts-loaded');
-  });
-
-  // Timeout de seguridad: mostrar el texto después de 1 segundo aunque las fuentes no se hayan cargado
-  setTimeout(() => {
-    const heroHeading = document.querySelector('.hero-heading');
-    if (heroHeading && !heroHeading.classList.contains('fonts-loaded')) {
-      heroHeading.classList.add('fonts-loaded');
-      heroHeading.classList.add('animate');
-    }
-    if (!document.body.classList.contains('fonts-loaded')) {
-      document.body.classList.add('fonts-loaded');
-    }
-  }, 1000);
-} else {
-  // Fallback para navegadores sin Font Loading API
-  window.addEventListener('load', () => {
-    const heroHeading = document.querySelector('.hero-heading');
-    if (heroHeading) {
-      heroHeading.classList.add('fonts-loaded');
-      heroHeading.classList.add('animate');
-    }
-    document.body.classList.add('fonts-loaded');
-  });
-}
+  } else {
+    // Esperar a que se añada la clase fonts-loaded
+    const observer = new MutationObserver((mutations) => {
+      if (document.body.classList.contains('fonts-loaded')) {
+        const heroHeading = document.querySelector('.hero-heading');
+        if (heroHeading) {
+          heroHeading.classList.add('fonts-loaded');
+          setTimeout(() => {
+            heroHeading.classList.add('animate');
+          }, 100);
+        }
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    
+    // Timeout de seguridad
+    setTimeout(() => {
+      const heroHeading = document.querySelector('.hero-heading');
+      if (heroHeading) {
+        heroHeading.classList.add('fonts-loaded');
+        heroHeading.classList.add('animate');
+      }
+      observer.disconnect();
+    }, 2000);
+  }
+});
 
 // Navbar scroll behavior
 const navbarContainer = document.getElementById('navbarContainer');
@@ -240,6 +228,133 @@ document.querySelectorAll('.process-step').forEach((item, index) => {
 // Añadir animación de aparición al about content con delay
 document.querySelectorAll('.about-content').forEach((item) => {
   item.style.animationDelay = `0.2s`;
+});
+
+// Footer videos loop handler - sistema robusto con monitoreo continuo
+const footerVideos = document.querySelectorAll('.footer-video');
+
+// Función para intentar reproducir un video con reintentos
+function playVideoWithRetry(video, maxRetries = 3, delay = 500) {
+  let retries = 0;
+  
+  const attemptPlay = () => {
+    if (video.readyState >= 2) { // HAVE_CURRENT_DATA o superior
+      video.play().then(() => {
+        // Éxito
+        retries = 0;
+      }).catch(err => {
+        if (retries < maxRetries) {
+          retries++;
+          setTimeout(attemptPlay, delay * retries);
+        } else {
+          console.warn('No se pudo reproducir el video después de varios intentos:', err);
+        }
+      });
+    } else {
+      // Esperar a que el video esté listo
+      video.addEventListener('loadeddata', attemptPlay, { once: true });
+    }
+  };
+  
+  attemptPlay();
+}
+
+// Configurar cada video del footer
+footerVideos.forEach((video, index) => {
+  // Asegurar que el loop esté activado
+  video.loop = true;
+  video.muted = true; // Asegurar que esté silenciado para autoplay
+  video.playsInline = true;
+  
+  // Listener para cuando el video termine (por si el loop falla)
+  video.addEventListener('ended', () => {
+    video.currentTime = 0;
+    playVideoWithRetry(video);
+  });
+  
+  // Listener para cuando el video se pause inesperadamente
+  video.addEventListener('pause', () => {
+    // Solo reanudar si no fue pausado manualmente y está visible
+    if (!video.ended && !video.paused) {
+      setTimeout(() => {
+        if (video.paused && !video.ended) {
+          playVideoWithRetry(video);
+        }
+      }, 100);
+    }
+  });
+  
+  // Manejar errores de carga
+  video.addEventListener('error', (e) => {
+    console.error(`Error al cargar video del footer ${index + 1}:`, e);
+    // Reintentar después de un delay
+    setTimeout(() => {
+      video.load();
+      playVideoWithRetry(video);
+    }, 2000);
+  });
+  
+  // Asegurar que el video se cargue
+  video.load();
+});
+
+// Intersection Observer para reproducir videos solo cuando están visibles
+const videoObserverOptions = {
+  threshold: 0.1,
+  rootMargin: '50px'
+};
+
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      // Video visible - intentar reproducir
+      if (video.paused || video.ended) {
+        playVideoWithRetry(video);
+      }
+    } else {
+      // Video no visible - pausar para ahorrar recursos (opcional)
+      // Comentado para mantener los videos reproduciéndose siempre
+      // if (!video.paused) {
+      //   video.pause();
+      // }
+    }
+  });
+}, videoObserverOptions);
+
+// Observar cada video
+footerVideos.forEach(video => {
+  videoObserver.observe(video);
+});
+
+// Watchdog: verificar periódicamente que los videos estén reproduciéndose
+let videoWatchdogInterval = setInterval(() => {
+  footerVideos.forEach((video, index) => {
+    // Solo verificar si el video está en el viewport
+    const rect = video.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isVisible) {
+      // Verificar si el video debería estar reproduciéndose pero está pausado
+      if (video.paused && !video.ended && video.readyState >= 2) {
+        console.log(`Reanudando video del footer ${index + 1} (detectado pausado)`);
+        playVideoWithRetry(video);
+      }
+      
+      // Verificar si el video terminó pero no se reinició (por si el loop falla)
+      if (video.ended) {
+        video.currentTime = 0;
+        playVideoWithRetry(video);
+      }
+    }
+  });
+}, 2000); // Verificar cada 2 segundos
+
+// Limpiar el intervalo cuando la página se descargue
+window.addEventListener('beforeunload', () => {
+  if (videoWatchdogInterval) {
+    clearInterval(videoWatchdogInterval);
+  }
 });
 
 // Offer video autoplay handler

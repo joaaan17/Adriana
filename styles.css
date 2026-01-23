@@ -1,7 +1,6 @@
 /* Reset y base */
 
-/* Importar fuentes personalizadas */
-@import url('fonts.css');
+/* Nota: fonts.css ahora se carga directamente en el <head> del HTML para cargar antes */
 
 /* Importar estilos del Hero Heading */
 @import url('hero-heading.css');
