@@ -1,6 +1,6 @@
-# Adriana Microblading - Landing Page
+# Adriana Micropigmentación - Landing Page
 
-Landing page estática para Adriana Tortosa, especialista en microblading. Desarrollada con HTML, CSS y JavaScript vanilla.
+Landing page estática para Adriana Tortosa, especialista en micropigmentación. Desarrollada con HTML, CSS y JavaScript vanilla.
 
 ## 🚀 Características
 
