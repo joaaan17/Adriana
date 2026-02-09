@@ -1408,7 +1408,31 @@ body {
 
 .footer-social {
   display: flex;
+  align-items: center;
   gap: 16px;
+}
+
+.sello-wrapper {
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sello-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-social-separator {
+  width: 1px;
+  height: 40px;
+  background-color: rgba(49, 41, 32, 0.3);
+  flex-shrink: 0;
 }
 
 .social-link {
@@ -1955,6 +1979,20 @@ body {
 
   .footer-social {
     justify-content: center;
+  }
+
+  .sello-wrapper {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sello-img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .footer-social-separator {
+    height: 32px;
   }
 
   .social-link {
